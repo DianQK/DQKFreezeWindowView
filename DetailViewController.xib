@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8152.3" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8124.4"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="觉得不错的话能不能帮忙推荐个实习" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHK-YO-q3M">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="274" id="lhO-me-Lyi"/>
+                        <constraint firstAttribute="height" constant="28" id="ltj-JY-cR7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="lhO-me-Lyi"/>
+                            <exclude reference="ltj-JY-cR7"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=compact">
+                        <mask key="constraints">
+                            <include reference="lhO-me-Lyi"/>
+                            <include reference="ltj-JY-cR7"/>
+                        </mask>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微博：@靛青K" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWd-ll-389">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="XMG-WO-1Wh"/>
+                        <constraint firstAttribute="width" constant="116" id="r5A-5r-XDh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="XMG-WO-1Wh"/>
+                            <exclude reference="r5A-5r-XDh"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=compact">
+                        <mask key="constraints">
+                            <include reference="XMG-WO-1Wh"/>
+                            <include reference="r5A-5r-XDh"/>
+                        </mask>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="超期待能有个锻炼的机会" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c38-7E-iHl">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="191" id="MJy-Jx-Xdi"/>
+                        <constraint firstAttribute="height" constant="21" id="uk8-gw-yl7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="MJy-Jx-Xdi"/>
+                            <exclude reference="uk8-gw-yl7"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=compact">
+                        <mask key="constraints">
+                            <include reference="MJy-Jx-Xdi"/>
+                            <include reference="uk8-gw-yl7"/>
+                        </mask>
+                    </variation>
+                </label>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="c38-7E-iHl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="82R-rR-sSM"/>
+                <constraint firstItem="c38-7E-iHl" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="M9W-r2-xBP"/>
+                <constraint firstAttribute="trailing" secondItem="AWd-ll-389" secondAttribute="trailing" constant="43" id="OiD-3A-xvB"/>
+                <constraint firstItem="HHK-YO-q3M" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-30" id="W5M-XC-VAf"/>
+                <constraint firstAttribute="bottom" secondItem="AWd-ll-389" secondAttribute="bottom" constant="31" id="ajO-t7-eNS"/>
+                <constraint firstItem="HHK-YO-q3M" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jun-Qc-af1"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="HHK-YO-q3M"/>
+                    <exclude reference="AWd-ll-389"/>
+                    <exclude reference="c38-7E-iHl"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="W5M-XC-VAf"/>
+                    <exclude reference="jun-Qc-af1"/>
+                    <exclude reference="82R-rR-sSM"/>
+                    <exclude reference="M9W-r2-xBP"/>
+                    <exclude reference="OiD-3A-xvB"/>
+                    <exclude reference="ajO-t7-eNS"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=compact">
+                <mask key="subviews">
+                    <include reference="HHK-YO-q3M"/>
+                    <include reference="AWd-ll-389"/>
+                    <include reference="c38-7E-iHl"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="W5M-XC-VAf"/>
+                    <include reference="jun-Qc-af1"/>
+                    <include reference="82R-rR-sSM"/>
+                    <include reference="M9W-r2-xBP"/>
+                    <include reference="OiD-3A-xvB"/>
+                    <include reference="ajO-t7-eNS"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>
