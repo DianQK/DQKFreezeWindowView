@@ -13,7 +13,7 @@ You can use it for:
 ## Why You Should Use DQKFreezeWindowView   
 Look follow this picture:
 ![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/DemoScreenshot.png)![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/AppleScreenshot.png)   
-The right picture is Apple Calendar App. Also when you use Calendar, you can't scroll view to horizontal direction after scrolling view to vertical direction instantly, which like a bug.    
+The second picture is Apple Calendar App. Also when you use Calendar, you can't scroll view to horizontal direction after scrolling view to vertical direction instantly, which like a bug.    
 Support **Delegate** and **DataSource** !!!   
 Here is a gif to show    
 *If you find it delay, don't worry, just because it's a bit large (3.7 MB)*    
