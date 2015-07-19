@@ -79,13 +79,13 @@
 			isa = PBXGroup;
 			children = (
 				AAE0A8B71B5B55C100A62154 /* DQKFreezeWindowView */,
+				AAE0A8581B5B507F00A62154 /* ViewController.h */,
+				AAE0A8591B5B507F00A62154 /* ViewController.m */,
 				AAE0A8531B5B507F00A62154 /* DetailViewController.h */,
 				AAE0A8541B5B507F00A62154 /* DetailViewController.m */,
 				AAE0A8551B5B507F00A62154 /* DetailViewController.xib */,
 				AAE0A8561B5B507F00A62154 /* AppDelegate.h */,
 				AAE0A8571B5B507F00A62154 /* AppDelegate.m */,
-				AAE0A8581B5B507F00A62154 /* ViewController.h */,
-				AAE0A8591B5B507F00A62154 /* ViewController.m */,
 				AAE0A8481B5B502300A62154 /* Assets.xcassets */,
 				AAE0A8701B5B50FD00A62154 /* Main.storyboard */,
 				AAE0A8721B5B515E00A62154 /* LaunchScreen.storyboard */,
