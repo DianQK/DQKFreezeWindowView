@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAE0A83E1B5B502300A62154 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A83D1B5B502300A62154 /* main.m */; };
+		AAE0A8491B5B502300A62154 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE0A8481B5B502300A62154 /* Assets.xcassets */; };
+		AAE0A85A1B5B507F00A62154 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8541B5B507F00A62154 /* DetailViewController.m */; };
+		AAE0A85B1B5B507F00A62154 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAE0A8551B5B507F00A62154 /* DetailViewController.xib */; };
+		AAE0A85C1B5B507F00A62154 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8571B5B507F00A62154 /* AppDelegate.m */; };
+		AAE0A85D1B5B507F00A62154 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8591B5B507F00A62154 /* ViewController.m */; };
+		AAE0A86B1B5B50B300A62154 /* DQKFreezeWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8621B5B50B300A62154 /* DQKFreezeWindowView.m */; };
+		AAE0A86C1B5B50B300A62154 /* DQKMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8641B5B50B300A62154 /* DQKMainViewCell.m */; };
+		AAE0A86D1B5B50B300A62154 /* DQKRowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8661B5B50B300A62154 /* DQKRowViewCell.m */; };
+		AAE0A86E1B5B50B300A62154 /* DQKSectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8681B5B50B300A62154 /* DQKSectionViewCell.m */; };
+		AAE0A86F1B5B50B300A62154 /* DQKSignView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A86A1B5B50B300A62154 /* DQKSignView.m */; };
+		AAE0A8711B5B50FD00A62154 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE0A8701B5B50FD00A62154 /* Main.storyboard */; };
+		AAE0A8731B5B515E00A62154 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE0A8721B5B515E00A62154 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AAE0A8391B5B502300A62154 /* DQKFreezeWindowViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DQKFreezeWindowViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAE0A83D1B5B502300A62154 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AAE0A8481B5B502300A62154 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAE0A84D1B5B502300A62154 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAE0A8531B5B507F00A62154 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		AAE0A8541B5B507F00A62154 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		AAE0A8551B5B507F00A62154 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		AAE0A8561B5B507F00A62154 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AAE0A8571B5B507F00A62154 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AAE0A8581B5B507F00A62154 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AAE0A8591B5B507F00A62154 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AAE0A8611B5B50B300A62154 /* DQKFreezeWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKFreezeWindowView.h; sourceTree = "<group>"; };
+		AAE0A8621B5B50B300A62154 /* DQKFreezeWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKFreezeWindowView.m; sourceTree = "<group>"; };
+		AAE0A8631B5B50B300A62154 /* DQKMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKMainViewCell.h; sourceTree = "<group>"; };
+		AAE0A8641B5B50B300A62154 /* DQKMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKMainViewCell.m; sourceTree = "<group>"; };
+		AAE0A8651B5B50B300A62154 /* DQKRowViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKRowViewCell.h; sourceTree = "<group>"; };
+		AAE0A8661B5B50B300A62154 /* DQKRowViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKRowViewCell.m; sourceTree = "<group>"; };
+		AAE0A8671B5B50B300A62154 /* DQKSectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKSectionViewCell.h; sourceTree = "<group>"; };
+		AAE0A8681B5B50B300A62154 /* DQKSectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKSectionViewCell.m; sourceTree = "<group>"; };
+		AAE0A8691B5B50B300A62154 /* DQKSignView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKSignView.h; sourceTree = "<group>"; };
+		AAE0A86A1B5B50B300A62154 /* DQKSignView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKSignView.m; sourceTree = "<group>"; };
+		AAE0A8701B5B50FD00A62154 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		AAE0A8721B5B515E00A62154 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAE0A8361B5B502300A62154 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAE0A8301B5B502300A62154 = {
+			isa = PBXGroup;
+			children = (
+				AAE0A83B1B5B502300A62154 /* DQKFreezeWindowViewDemo */,
+				AAE0A83A1B5B502300A62154 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAE0A83A1B5B502300A62154 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAE0A8391B5B502300A62154 /* DQKFreezeWindowViewDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAE0A83B1B5B502300A62154 /* DQKFreezeWindowViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				AAE0A8601B5B50B300A62154 /* DQKFreezeWindowView */,
+				AAE0A8531B5B507F00A62154 /* DetailViewController.h */,
+				AAE0A8541B5B507F00A62154 /* DetailViewController.m */,
+				AAE0A8551B5B507F00A62154 /* DetailViewController.xib */,
+				AAE0A8561B5B507F00A62154 /* AppDelegate.h */,
+				AAE0A8571B5B507F00A62154 /* AppDelegate.m */,
+				AAE0A8581B5B507F00A62154 /* ViewController.h */,
+				AAE0A8591B5B507F00A62154 /* ViewController.m */,
+				AAE0A8481B5B502300A62154 /* Assets.xcassets */,
+				AAE0A8701B5B50FD00A62154 /* Main.storyboard */,
+				AAE0A8721B5B515E00A62154 /* LaunchScreen.storyboard */,
+				AAE0A84D1B5B502300A62154 /* Info.plist */,
+				AAE0A83C1B5B502300A62154 /* Supporting Files */,
+			);
+			path = DQKFreezeWindowViewDemo;
+			sourceTree = "<group>";
+		};
+		AAE0A83C1B5B502300A62154 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AAE0A83D1B5B502300A62154 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AAE0A8601B5B50B300A62154 /* DQKFreezeWindowView */ = {
+			isa = PBXGroup;
+			children = (
+				AAE0A8611B5B50B300A62154 /* DQKFreezeWindowView.h */,
+				AAE0A8621B5B50B300A62154 /* DQKFreezeWindowView.m */,
+				AAE0A8631B5B50B300A62154 /* DQKMainViewCell.h */,
+				AAE0A8641B5B50B300A62154 /* DQKMainViewCell.m */,
+				AAE0A8651B5B50B300A62154 /* DQKRowViewCell.h */,
+				AAE0A8661B5B50B300A62154 /* DQKRowViewCell.m */,
+				AAE0A8671B5B50B300A62154 /* DQKSectionViewCell.h */,
+				AAE0A8681B5B50B300A62154 /* DQKSectionViewCell.m */,
+				AAE0A8691B5B50B300A62154 /* DQKSignView.h */,
+				AAE0A86A1B5B50B300A62154 /* DQKSignView.m */,
+			);
+			path = DQKFreezeWindowView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAE0A8381B5B502300A62154 /* DQKFreezeWindowViewDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAE0A8501B5B502300A62154 /* Build configuration list for PBXNativeTarget "DQKFreezeWindowViewDemo" */;
+			buildPhases = (
+				AAE0A8351B5B502300A62154 /* Sources */,
+				AAE0A8361B5B502300A62154 /* Frameworks */,
+				AAE0A8371B5B502300A62154 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DQKFreezeWindowViewDemo;
+			productName = DQKFreezeWindowViewDemo;
+			productReference = AAE0A8391B5B502300A62154 /* DQKFreezeWindowViewDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAE0A8311B5B502300A62154 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = dianqk;
+				TargetAttributes = {
+					AAE0A8381B5B502300A62154 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = AAE0A8341B5B502300A62154 /* Build configuration list for PBXProject "DQKFreezeWindowViewDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAE0A8301B5B502300A62154;
+			productRefGroup = AAE0A83A1B5B502300A62154 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAE0A8381B5B502300A62154 /* DQKFreezeWindowViewDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAE0A8371B5B502300A62154 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAE0A85B1B5B507F00A62154 /* DetailViewController.xib in Resources */,
+				AAE0A8731B5B515E00A62154 /* LaunchScreen.storyboard in Resources */,
+				AAE0A8491B5B502300A62154 /* Assets.xcassets in Resources */,
+				AAE0A8711B5B50FD00A62154 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAE0A8351B5B502300A62154 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAE0A83E1B5B502300A62154 /* main.m in Sources */,
+				AAE0A85A1B5B507F00A62154 /* DetailViewController.m in Sources */,
+				AAE0A86C1B5B50B300A62154 /* DQKMainViewCell.m in Sources */,
+				AAE0A85D1B5B507F00A62154 /* ViewController.m in Sources */,
+				AAE0A85C1B5B507F00A62154 /* AppDelegate.m in Sources */,
+				AAE0A86B1B5B50B300A62154 /* DQKFreezeWindowView.m in Sources */,
+				AAE0A86F1B5B50B300A62154 /* DQKSignView.m in Sources */,
+				AAE0A86D1B5B50B300A62154 /* DQKRowViewCell.m in Sources */,
+				AAE0A86E1B5B50B300A62154 /* DQKSectionViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AAE0A84E1B5B502300A62154 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AAE0A84F1B5B502300A62154 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAE0A8511B5B502300A62154 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DQKFreezeWindowViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dianqk.DQKFreezeWindowViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AAE0A8521B5B502300A62154 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DQKFreezeWindowViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dianqk.DQKFreezeWindowViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAE0A8341B5B502300A62154 /* Build configuration list for PBXProject "DQKFreezeWindowViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAE0A84E1B5B502300A62154 /* Debug */,
+				AAE0A84F1B5B502300A62154 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAE0A8501B5B502300A62154 /* Build configuration list for PBXNativeTarget "DQKFreezeWindowViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAE0A8511B5B502300A62154 /* Debug */,
+				AAE0A8521B5B502300A62154 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAE0A8311B5B502300A62154 /* Project object */;
+}
