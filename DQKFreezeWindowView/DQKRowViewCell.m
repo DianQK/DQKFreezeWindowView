@@ -20,7 +20,6 @@
 @synthesize title;
 @synthesize separatorStyle;
 
-
 - (instancetype)initWithStyle:(DQKRowViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super init];
     if (self) {

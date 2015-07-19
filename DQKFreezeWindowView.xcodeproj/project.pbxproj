@@ -15,11 +15,11 @@
 		AA2DAB971B57BB6C008B96A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2DAB951B57BB6C008B96A5 /* Main.storyboard */; };
 		AA2DAB991B57BB6C008B96A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA2DAB981B57BB6C008B96A5 /* Assets.xcassets */; };
 		AA2DAB9C1B57BB6C008B96A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2DAB9A1B57BB6C008B96A5 /* LaunchScreen.storyboard */; };
-		AA2DABA51B57BB9E008B96A5 /* DQKFreezeWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2DABA41B57BB9E008B96A5 /* DQKFreezeWindowView.m */; };
 		AAE0A8291B5B4C2F00A62154 /* DQKMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8221B5B4C2F00A62154 /* DQKMainViewCell.m */; };
 		AAE0A82A1B5B4C2F00A62154 /* DQKRowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8241B5B4C2F00A62154 /* DQKRowViewCell.m */; };
 		AAE0A82B1B5B4C2F00A62154 /* DQKSectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8261B5B4C2F00A62154 /* DQKSectionViewCell.m */; };
 		AAE0A82C1B5B4C2F00A62154 /* DQKSignView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8281B5B4C2F00A62154 /* DQKSignView.m */; };
+		AAE0A82F1B5B4D0A00A62154 /* DQKFreezeWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A82E1B5B4D0A00A62154 /* DQKFreezeWindowView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +36,6 @@
 		AA2DAB981B57BB6C008B96A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA2DAB9B1B57BB6C008B96A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA2DAB9D1B57BB6C008B96A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA2DABA31B57BB9E008B96A5 /* DQKFreezeWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DQKFreezeWindowView.h; path = ../../DQKFreezeWindowView/DQKFreezeWindowView/DQKFreezeWindowView.h; sourceTree = "<group>"; };
-		AA2DABA41B57BB9E008B96A5 /* DQKFreezeWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DQKFreezeWindowView.m; path = ../../DQKFreezeWindowView/DQKFreezeWindowView/DQKFreezeWindowView.m; sourceTree = "<group>"; };
 		AAE0A8211B5B4C2F00A62154 /* DQKMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DQKMainViewCell.h; path = DQKFreezeWindowView/DQKMainViewCell.h; sourceTree = SOURCE_ROOT; };
 		AAE0A8221B5B4C2F00A62154 /* DQKMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DQKMainViewCell.m; path = DQKFreezeWindowView/DQKMainViewCell.m; sourceTree = SOURCE_ROOT; };
 		AAE0A8231B5B4C2F00A62154 /* DQKRowViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DQKRowViewCell.h; path = DQKFreezeWindowView/DQKRowViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -46,6 +44,8 @@
 		AAE0A8261B5B4C2F00A62154 /* DQKSectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DQKSectionViewCell.m; path = DQKFreezeWindowView/DQKSectionViewCell.m; sourceTree = SOURCE_ROOT; };
 		AAE0A8271B5B4C2F00A62154 /* DQKSignView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DQKSignView.h; path = DQKFreezeWindowView/DQKSignView.h; sourceTree = SOURCE_ROOT; };
 		AAE0A8281B5B4C2F00A62154 /* DQKSignView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DQKSignView.m; path = DQKFreezeWindowView/DQKSignView.m; sourceTree = SOURCE_ROOT; };
+		AAE0A82D1B5B4D0A00A62154 /* DQKFreezeWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DQKFreezeWindowView.h; path = DQKFreezeWindowView/DQKFreezeWindowView.h; sourceTree = SOURCE_ROOT; };
+		AAE0A82E1B5B4D0A00A62154 /* DQKFreezeWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DQKFreezeWindowView.m; path = DQKFreezeWindowView/DQKFreezeWindowView.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +106,8 @@
 		AA2DABB01B57BDAA008B96A5 /* DQKFreezeWindowView */ = {
 			isa = PBXGroup;
 			children = (
-				AA2DABA31B57BB9E008B96A5 /* DQKFreezeWindowView.h */,
-				AA2DABA41B57BB9E008B96A5 /* DQKFreezeWindowView.m */,
+				AAE0A82D1B5B4D0A00A62154 /* DQKFreezeWindowView.h */,
+				AAE0A82E1B5B4D0A00A62154 /* DQKFreezeWindowView.m */,
 				AAE0A8211B5B4C2F00A62154 /* DQKMainViewCell.h */,
 				AAE0A8221B5B4C2F00A62154 /* DQKMainViewCell.m */,
 				AAE0A8231B5B4C2F00A62154 /* DQKRowViewCell.h */,
@@ -193,12 +193,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA2DABA51B57BB9E008B96A5 /* DQKFreezeWindowView.m in Sources */,
 				AA28B7DD1B5A8FC300668826 /* DetailViewController.m in Sources */,
 				AAE0A8291B5B4C2F00A62154 /* DQKMainViewCell.m in Sources */,
 				AA2DAB941B57BB6C008B96A5 /* ViewController.m in Sources */,
 				AA2DAB911B57BB6C008B96A5 /* AppDelegate.m in Sources */,
 				AA2DAB8E1B57BB6C008B96A5 /* main.m in Sources */,
+				AAE0A82F1B5B4D0A00A62154 /* DQKFreezeWindowView.m in Sources */,
 				AAE0A82C1B5B4C2F00A62154 /* DQKSignView.m in Sources */,
 				AAE0A82A1B5B4C2F00A62154 /* DQKRowViewCell.m in Sources */,
 				AAE0A82B1B5B4C2F00A62154 /* DQKSectionViewCell.m in Sources */,
