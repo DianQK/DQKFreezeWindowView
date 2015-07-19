@@ -11,8 +11,10 @@
 #import "DetailViewController.h"
 
 @interface ViewController () <DQKFreezeWindowViewDataSource, DQKFreezeWindowViewDelegate>
+
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property (strong, nonatomic) NSArray *timeArray;
+
 @end
 
 @implementation ViewController
@@ -29,8 +31,6 @@
     NSDateComponents *dateComponents = [self getDateWithDaySinceNow:0];
     NSString *monthStr = [NSString stringWithFormat:@"%@",[self getMonthStrWithMonth:[dateComponents month]]];
     [freezeWindowView setSignViewWithContent:monthStr];
-    // freezeWindowView.tapToTop = YES;
-    // freezeWindowView.tapToLeft = YES;
     self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     self.detailViewController.title = @"Event Details";
 }
@@ -40,6 +40,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
+#pragma mark - freeze data source
 - (NSInteger)numberOfSectionsInFreezeWindowView:(DQKFreezeWindowView *)freezeWindowView {
     return 100;
 }
@@ -75,14 +76,14 @@
     DQKSectionViewCell *sectionCell = [freezeWindowView dequeueReusableSectionCellWithIdentifier:dayCell forSection:section];
     sectionCell.backgroundColor = [UIColor colorWithRed:245./255. green:245./255. blue:245./255. alpha:1.];
     NSDateComponents *dateComponents = [self getDateWithDaySinceNow:section - 2];
-    /*
-     NSString *monthStr = [NSString stringWithFormat:@"%@",[self getMonthStrWithMonth:[dateComponents month]]];
-     [freezeWindowView setSignViewWithContent:monthStr]; */
+    NSString *monthStr = [NSString stringWithFormat:@"%@",[self getMonthStrWithMonth:[dateComponents month]]];
+    [freezeWindowView setSignViewWithContent:monthStr];
     if (sectionCell == nil) {
         sectionCell = [[DQKSectionViewCell alloc] initWithStyle:DQKSectionViewCellStyleCustom reuseIdentifier:dayCell];
         UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 103, 24)];
         dateLabel.text = [NSString stringWithFormat:@"%ld",(long)[dateComponents day]];
         dateLabel.textAlignment = NSTextAlignmentCenter;
+        [dateLabel setTag:300];
         [sectionCell addSubview:dateLabel];
         UILabel *weekLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, 103, 24)];
         [weekLabel setFont:[UIFont systemFontOfSize:14]];
@@ -119,6 +120,7 @@
     return rowCell;
 }
 
+#pragma mark - freeze delegate
 - (void)freezeWindowView:(DQKFreezeWindowView *)freezeWindowView didSelectIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 3 && indexPath.section == 2) {
         DQKMainViewCell *mainViewCell = [freezeWindowView dequeueReusableMainCellWithIdentifier:@"eventCell" forIndexPath:indexPath];
@@ -129,6 +131,7 @@
         [self.navigationController pushViewController:self.detailViewController animated:YES];
     }
 }
+
 
 - (NSDateComponents *)getDateWithDaySinceNow:(NSInteger)afterDay {
     NSDate *now = [NSDate dateWithTimeIntervalSinceNow:afterDay * 24 * 60 * 60];

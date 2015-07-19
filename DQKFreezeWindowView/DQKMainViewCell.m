@@ -9,11 +9,14 @@
 #import "DQKMainViewCell.h"
 
 @interface DQKMainViewCell ()
+
 @property (strong, nonatomic) UIView *leftLine;
 @property (strong, nonatomic) UIView *rightLine;
 @property (strong, nonatomic) UIView *topLine;
 @property (strong, nonatomic) UIView *bottomLine;
+
 @property (strong, nonatomic) UILabel *titleLabel;
+
 @end
 
 @implementation DQKMainViewCell
@@ -48,7 +51,6 @@
 }
 
 
-
 - (void)setTitle:(NSString *)title_ {
     title = title_;
     self.titleLabel.text = title;
@@ -62,17 +64,18 @@
 }
 
 - (void)addLine {
+    UIColor *lineGrayColor = [UIColor colorWithRed:205./255. green:205./255. blue:205./255. alpha:1];
     _leftLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0.5, self.frame.size.height)];
-    _leftLine.backgroundColor = [UIColor colorWithRed:205./255. green:205./255. blue:205./255. alpha:1];
+    _leftLine.backgroundColor = lineGrayColor;
     [self addSubview:_leftLine];
     _rightLine = [[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width, 0, 0.5, self.frame.size.height)];
-    _rightLine.backgroundColor = [UIColor colorWithRed:205./255. green:205./255. blue:205./255. alpha:1];
+    _rightLine.backgroundColor = lineGrayColor;
     [self addSubview:_rightLine];
     _topLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 0.5)];
-    _topLine.backgroundColor = [UIColor colorWithRed:205./255. green:205./255. blue:205./255. alpha:1];
+    _topLine.backgroundColor = lineGrayColor;
     [self addSubview:_topLine];
     _bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height, self.frame.size.width, 0.5)];
-    _bottomLine.backgroundColor = [UIColor colorWithRed:205./255. green:205./255. blue:205./255. alpha:1];
+    _bottomLine.backgroundColor = lineGrayColor;
     [self addSubview:_bottomLine];
 }
 

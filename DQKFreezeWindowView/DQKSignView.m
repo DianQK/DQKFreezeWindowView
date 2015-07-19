@@ -9,7 +9,9 @@
 #import "DQKSignView.h"
 
 @interface DQKSignView ()
+
 @property (strong, nonatomic) UILabel *contentLabel;
+
 @end
 
 @implementation DQKSignView
@@ -34,6 +36,5 @@
 - (NSString *)getContent {
     return content;
 }
-
 
 @end

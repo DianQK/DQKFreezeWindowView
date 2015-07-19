@@ -21,12 +21,11 @@ typedef NS_ENUM(NSInteger, DQKRowViewCellSeparatorStyle) {
 
 @interface DQKRowViewCell : UIView
 
-
 - (instancetype)initWithStyle:(DQKRowViewCellStyle) style reuseIdentifier:(NSString *)reuseIdentifier;
 
 @property (nonatomic, readonly, copy) NSString *reuseIdentifier;
+@property (strong, nonatomic) NSString *title;
 @property (readonly, assign, nonatomic) DQKRowViewCellStyle style;
 @property (assign, nonatomic) DQKRowViewCellSeparatorStyle separatorStyle;
-@property (strong, nonatomic) NSString *title;
 
 @end

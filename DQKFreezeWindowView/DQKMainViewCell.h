@@ -24,8 +24,8 @@ typedef NS_ENUM(NSInteger, DQKMainViewCellSeparatorStyle) {
 - (instancetype)initWithStyle:(DQKMainViewCellStyle) style reuseIdentifier:(NSString *)reuseIdentifier;
 
 @property (nonatomic, readonly, copy) NSString *reuseIdentifier;
+@property (strong, nonatomic) NSString *title;
 @property (readonly, assign, nonatomic) DQKMainViewCellStyle style;
 @property (assign, nonatomic) DQKMainViewCellSeparatorStyle separatorStyle;
-@property (strong, nonatomic) NSString *title;
 
 @end

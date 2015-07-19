@@ -61,7 +61,7 @@
                         </mask>
                     </variation>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hope you like." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c38-7E-iHl">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hope you love this." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c38-7E-iHl">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                     <animations/>
                     <constraints>
@@ -102,12 +102,12 @@
                     <exclude reference="c38-7E-iHl"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="OiD-3A-xvB"/>
+                    <exclude reference="ajO-t7-eNS"/>
                     <exclude reference="W5M-XC-VAf"/>
                     <exclude reference="jun-Qc-af1"/>
                     <exclude reference="82R-rR-sSM"/>
                     <exclude reference="M9W-r2-xBP"/>
-                    <exclude reference="OiD-3A-xvB"/>
-                    <exclude reference="ajO-t7-eNS"/>
                 </mask>
             </variation>
             <variation key="heightClass=compact">
@@ -117,12 +117,12 @@
                     <include reference="c38-7E-iHl"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="OiD-3A-xvB"/>
+                    <include reference="ajO-t7-eNS"/>
                     <include reference="W5M-XC-VAf"/>
                     <include reference="jun-Qc-af1"/>
                     <include reference="82R-rR-sSM"/>
                     <include reference="M9W-r2-xBP"/>
-                    <include reference="OiD-3A-xvB"/>
-                    <include reference="ajO-t7-eNS"/>
                 </mask>
             </variation>
         </view>

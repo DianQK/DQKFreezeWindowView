@@ -59,11 +59,12 @@
 }
 
 - (void)addLine {
+    UIColor *lineGrayColor = [UIColor colorWithRed:205./255. green:205./255. blue:205./255. alpha:1];
     _leftLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0.5, self.frame.size.height)];
-    _leftLine.backgroundColor = [UIColor colorWithRed:205./255. green:205./255. blue:205./255. alpha:1];
+    _leftLine.backgroundColor = lineGrayColor;
     [self addSubview:_leftLine];
     _rightLine = [[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width, 0, 0.5, self.frame.size.height)];
-    _rightLine.backgroundColor = [UIColor colorWithRed:205./255. green:205./255. blue:205./255. alpha:1];
+    _rightLine.backgroundColor = lineGrayColor;
     [self addSubview:_rightLine];
     _bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 0.5, self.frame.size.width, 0.5)];
     _bottomLine.backgroundColor = [UIColor grayColor];

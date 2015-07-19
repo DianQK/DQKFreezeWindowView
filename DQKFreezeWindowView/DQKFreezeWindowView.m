@@ -7,10 +7,6 @@
 //
 
 #import "DQKFreezeWindowView.h"
-#import "DQKMainViewCell.h"
-#import "DQKSectionViewCell.h"
-#import "DQKRowViewCell.h"
-#import "DQKSignView.h"
 
 @interface DQKFreezeWindowView () <UIScrollViewDelegate>
 
@@ -34,6 +30,8 @@
 @synthesize bounceStyle;
 @synthesize tapToTop;
 @synthesize tapToLeft;
+@synthesize showsHorizontalScrollIndicator;
+@synthesize showsVerticalScrollIndicator;
 
 - (instancetype)initWithFrame:(CGRect)frame FreezePoint: (CGPoint) freezePoint cellViewSize: (CGSize) cellViewSize {
     self = [super initWithFrame:frame];
@@ -42,36 +40,26 @@
         _sectionScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(freezePoint.x, 0, frame.size.width - freezePoint.x, freezePoint.y)];
         _rowScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, freezePoint.y, freezePoint.x, frame.size.height - freezePoint.y)];
         _signView = [[DQKSignView alloc] initWithFrame:CGRectMake(0, 0, freezePoint.x, freezePoint.y)];
-        
         [self addSubview:_mainScrollView];
         [self addSubview:_sectionScrollView];
         [self addSubview:_rowScrollView];
         [self addSubview:_signView];
-        
         self.mainScrollView.delegate = self;
         self.sectionScrollView.delegate = self;
         self.rowScrollView.delegate = self;
-        
         _mainScrollView.bounces = NO;
         _sectionScrollView.bounces = NO;
         _rowScrollView.bounces = NO;
-        
         _mainScrollView.showsHorizontalScrollIndicator = NO;
         _mainScrollView.showsVerticalScrollIndicator = NO;
         _sectionScrollView.showsHorizontalScrollIndicator = NO;
         _sectionScrollView.showsVerticalScrollIndicator = NO;
         _rowScrollView.showsHorizontalScrollIndicator = NO;
         _rowScrollView.showsVerticalScrollIndicator = NO;
-        
         [self setContentSize];
-        
         _freezePoint = freezePoint;
         _cellViewSize = cellViewSize;
-        
         _cellIdentifier = [[NSMutableDictionary alloc] init];
-        
-        
-        
     }
     return self;
 }
@@ -101,12 +89,15 @@
 - (void)setSignViewBackgroundColor:(UIColor *)color {
     self.signView.backgroundColor = color;
 }
+
 - (void)setMainViewBackgroundColor:(UIColor *)color {
     self.mainScrollView.backgroundColor = color;
 }
+
 - (void)setSectionViewBackgroundColor:(UIColor *)color {
     self.sectionScrollView.backgroundColor = color;
 }
+
 - (void)setRowViewBackgroundColor:(UIColor *)color {
     self.rowScrollView.backgroundColor = color;
 }
@@ -120,14 +111,15 @@
 - (void)scrollViewDidScroll:(nonnull UIScrollView *)scrollView
 {
     [self refreshViewWhenScroll];
+    [self sectionCellInSectionScrollView];
     if ([scrollView isEqual:self.mainScrollView]) {
-        // 停止其他视图的滚动，如果不停止就会出现卡顿
+        // stop other scrollView scroll
         [self.sectionScrollView setContentOffset:self.sectionScrollView.contentOffset animated:NO];
         [self.rowScrollView setContentOffset:self.rowScrollView.contentOffset animated:NO];
         self.sectionScrollView.delegate = nil;
         self.rowScrollView.delegate = nil;
         if (self.bounceStyle == DQKFreezeWindowViewBounceStyleAll) {
-            if (self.mainScrollView.contentOffset.y <= 0) {  // 一定是 <= 否则停止滚动后会差一个单位
+            if (self.mainScrollView.contentOffset.y <= 0) {
                 [self.sectionScrollView setFrame:CGRectMake(self.sectionScrollView.frame.origin.x, - self.mainScrollView.contentOffset.y, self.sectionScrollView.frame.size.width, self.sectionScrollView.frame.size.height)];
                 [self.signView setFrame:CGRectMake(self.signView.frame.origin.x, - self.mainScrollView.contentOffset.y, self.signView.frame.size.width, self.signView.frame.size.height)];
             }
@@ -136,7 +128,7 @@
                 [self.signView setFrame:CGRectMake(- self.mainScrollView.contentOffset.x, self.signView.frame.origin.y, self.signView.frame.size.width, self.signView.frame.size.height)];
             }
         }
-        // 下面两段代码必须在设置frame后面执行
+        // the follow code must writre at last
         [self.sectionScrollView setContentOffset:CGPointMake(self.mainScrollView.contentOffset.x, 0)];
         [self.rowScrollView setContentOffset:CGPointMake(0, self.mainScrollView.contentOffset.y)];
     } else if ([scrollView isEqual:self.sectionScrollView]) {
@@ -144,21 +136,21 @@
         [self.rowScrollView setContentOffset:self.rowScrollView.contentOffset animated:NO];
         self.mainScrollView.delegate = nil;
         self.rowScrollView.delegate = nil;
-        if (self.bounceStyle == DQKFreezeWindowViewBounceStyleAll & self.sectionScrollView.contentOffset.x <= 0) {
+        if (self.bounceStyle == DQKFreezeWindowViewBounceStyleAll && self.sectionScrollView.contentOffset.x <= 0) {
             [self.rowScrollView setFrame:CGRectMake(- self.sectionScrollView.contentOffset.x, self.rowScrollView.frame.origin.y, self.rowScrollView.frame.size.width, self.rowScrollView.frame.size.height)];
             [self.signView setFrame:CGRectMake(- self.sectionScrollView.contentOffset.x, 0, self.signView.frame.size.width, self.signView.frame.size.height)];
         }
-        [self.mainScrollView setContentOffset:self.sectionScrollView.contentOffset];
+        [self.mainScrollView setContentOffset:CGPointMake(self.sectionScrollView.contentOffset.x, self.mainScrollView.contentOffset.y)];
     } else if ([scrollView isEqual:self.rowScrollView]) {
         [self.mainScrollView setContentOffset:self.mainScrollView.contentOffset animated:NO];
         [self.sectionScrollView setContentOffset:self.sectionScrollView.contentOffset animated:NO];
         self.mainScrollView.delegate = nil;
         self.sectionScrollView.delegate = nil;
-        if (self.bounceStyle == DQKFreezeWindowViewBounceStyleAll & self.rowScrollView.contentOffset.y <= 0) {
+        if (self.bounceStyle == DQKFreezeWindowViewBounceStyleAll && self.rowScrollView.contentOffset.y <= 0) {
             [self.sectionScrollView setFrame:CGRectMake(self.sectionScrollView.frame.origin.x, - self.rowScrollView.contentOffset.y, self.sectionScrollView.frame.size.width, self.sectionScrollView.frame.size.height)];
             [self.signView setFrame:CGRectMake(0, - self.rowScrollView.contentOffset.y, self.signView.frame.size.width, self.signView.frame.size.height)];
         }
-        [self.mainScrollView setContentOffset:self.rowScrollView.contentOffset];
+        [self.mainScrollView setContentOffset:CGPointMake(self.mainScrollView.contentOffset.x, self.rowScrollView.contentOffset.y)];
     }
     self.mainScrollView.delegate = self;
     self.sectionScrollView.delegate = self;
@@ -167,6 +159,21 @@
 
 - (void)scrollViewDidEndDecelerating:(nonnull UIScrollView *)scrollView {
     [self reloadViews];
+}
+
+- (void)sectionCellInSectionScrollView {
+    if (delegate) {
+        if (self.keyIndexPath != nil) {
+            DQKSectionViewCell *sectionViewCell = [delegate sectionCellPointInfreezeWindowView:self];
+            if ([sectionViewCell superview]) {
+                NSInteger cellAtSection = (sectionViewCell.frame.origin.x - self.mainScrollView.contentOffset.x) / self.cellViewSize.width;
+                if (cellAtSection == self.keyIndexPath.section) {
+                    NSInteger section = sectionViewCell.frame.origin.x / self.cellViewSize.width;
+                    [delegate sectionCellReachKey:sectionViewCell withSection:section];
+                }
+            }
+        }
+    }
 }
 
 - (void)tapMainViewCell:(UITapGestureRecognizer *) tapGestureRecognizer {
@@ -245,11 +252,27 @@
     }
 }
 
+- (void)setShowsHorizontalScrollIndicator:(BOOL)showsHorizontalScrollIndicator_ {
+    showsHorizontalScrollIndicator = showsHorizontalScrollIndicator_;
+    if (showsHorizontalScrollIndicator) {
+        self.mainScrollView.showsHorizontalScrollIndicator = YES;
+    } else {
+        self.mainScrollView.showsHorizontalScrollIndicator = NO;
+    }
+}
+
+- (void)setShowsVerticalScrollIndicator:(BOOL)showsVerticalScrollIndicator_ {
+    showsVerticalScrollIndicator = showsVerticalScrollIndicator_;
+    if (showsVerticalScrollIndicator) {
+        self.mainScrollView.showsVerticalScrollIndicator = YES;
+    } else {
+        self.mainScrollView.showsVerticalScrollIndicator = NO;
+    }
+}
+
 - (void)setContentSize {
-    
     NSInteger sectionNumber = [dataSource numberOfSectionsInFreezeWindowView:self];
     NSInteger rowNumber = [dataSource numberOfRowsInFreezeWindowView:self];
-    
     [self.mainScrollView setContentSize:CGSizeMake(self.cellViewSize.width * sectionNumber, self.cellViewSize.height * rowNumber)];
     [self.sectionScrollView setContentSize:CGSizeMake(self.cellViewSize.width * sectionNumber, 0)];
     [self.rowScrollView setContentSize:CGSizeMake(0, self.cellViewSize.height * rowNumber)];
@@ -295,8 +318,8 @@
     NSInteger rowNumber = [dataSource numberOfRowsInFreezeWindowView:self];
     NSInteger sectionInScreen = self.mainScrollView.contentOffset.x / self.cellViewSize.width + self.mainScrollView.frame.size.width / self.cellViewSize.width + 3;
     NSInteger rowInScreen = self.mainScrollView.contentOffset.y / self.cellViewSize.height + self.mainScrollView.frame.size.height / self.cellViewSize.height + 3;
-    for (NSInteger row = self.mainScrollView.contentOffset.y / self.cellViewSize.height < 0 ? 0 : self.mainScrollView.contentOffset.y / self.cellViewSize.height; (row < rowNumber & row < rowInScreen); row++) {
-        for (NSInteger section = self.mainScrollView.contentOffset.x / self.cellViewSize.width < 0 ? 0 : self.mainScrollView.contentOffset.x / self.cellViewSize.width; (section < sectionNumber & section < sectionInScreen); section++) {
+    for (NSInteger row = self.mainScrollView.contentOffset.y / self.cellViewSize.height < 0 ? 0 : self.mainScrollView.contentOffset.y / self.cellViewSize.height; (row < rowNumber && row < rowInScreen); row++) {
+        for (NSInteger section = self.mainScrollView.contentOffset.x / self.cellViewSize.width < 0 ? 0 : self.mainScrollView.contentOffset.x / self.cellViewSize.width; (section < sectionNumber && section < sectionInScreen); section++) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
             [self addMainViewCellWithIndexPath:indexPath];
             [self addSectionViewCellWithSection:indexPath.section];
@@ -334,7 +357,7 @@
 #pragma mark - add a cell
 - (void)addMainViewCellWithIndexPath:(NSIndexPath *)indexPath {
     DQKMainViewCell *mainViewCell = [dataSource freezeWindowView:self cellForRowAtIndexPath:indexPath];
-    if (mainViewCell != nil & [mainViewCell superview] == nil) {
+    if (mainViewCell != nil && [mainViewCell superview] == nil) {
         NSString *mainReuseIdentifier = mainViewCell.reuseIdentifier;
         [self.mainScrollView addSubview:mainViewCell];
         if ([self dequeueReusableMainCellWithIdentifier:mainReuseIdentifier forIndexPath:indexPath] == nil) {
@@ -357,7 +380,7 @@
 
 - (void)addSectionViewCellWithSection:(NSInteger)section {
     DQKSectionViewCell *sectionViewCell = [dataSource freezeWindowView:self cellAtSection:section];
-    if (sectionViewCell != nil & [sectionViewCell superview] == nil) {
+    if (sectionViewCell != nil && [sectionViewCell superview] == nil) {
         NSString *sectionReuseIdentifier = sectionViewCell.reuseIdentifier;
         [self.sectionScrollView addSubview:sectionViewCell];
         if ([self dequeueReusableSectionCellWithIdentifier:sectionReuseIdentifier forSection:section] == nil) {
@@ -376,7 +399,7 @@
 
 - (void)addRowViewCellWithRow:(NSInteger)row {
     DQKRowViewCell *rowViewCell = [dataSource freezeWindowView:self cellAtRow:row];
-    if (rowViewCell != nil & [rowViewCell superview] == nil) {
+    if (rowViewCell != nil && [rowViewCell superview] == nil) {
         NSString *rowReuseIdentifier = rowViewCell.reuseIdentifier;
         [self.rowScrollView addSubview:rowViewCell];
         if ([self dequeueReusableRowCellWithIdentifier:rowReuseIdentifier forRow:row] == nil) {
@@ -403,6 +426,7 @@
 }
 
 - (void)layoutSubviews {
+    [super layoutSubviews];
     [self reloadViews];
 }
 

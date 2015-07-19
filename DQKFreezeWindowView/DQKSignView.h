@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DQKSignView : UIView
+
 @property (strong, nonatomic) NSString *content;
+
 @end
