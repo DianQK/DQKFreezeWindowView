@@ -90,7 +90,9 @@ For more information, you can see the example and the demo.
 
 ## Other  
 You can set `DQKFreezeWindowView.bounceStyle`.   
-![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/DQKFreezeWindowViewBounceStyleMain.png)![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/DQKFreezeWindowViewBounceStyleMainAll.png)    
+![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/DQKFreezeWindowViewBounceStyleMain.png)   
+
+![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/DQKFreezeWindowViewBounceStyleAll.png)    
 ### Beta   
 * Tap Section to Top / Tap Row to Left
 * Detect A Cell Position
