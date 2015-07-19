@@ -32,6 +32,8 @@
 @synthesize delegate;
 @synthesize style;
 @synthesize bounceStyle;
+@synthesize tapToTop;
+@synthesize tapToLeft;
 
 - (instancetype)initWithFrame:(CGRect)frame FreezePoint: (CGPoint) freezePoint cellViewSize: (CGSize) cellViewSize {
     self = [super initWithFrame:frame];
@@ -167,10 +169,21 @@
     [self reloadViews];
 }
 
-- (void)tapMainViewCell:(UITapGestureRecognizer *) gestureRecognizer {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:gestureRecognizer.view.frame.origin.y / self.cellViewSize.height inSection:gestureRecognizer.view.frame.origin.x / self.cellViewSize.width];
+- (void)tapMainViewCell:(UITapGestureRecognizer *) tapGestureRecognizer {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:tapGestureRecognizer.view.frame.origin.y / self.cellViewSize.height inSection:tapGestureRecognizer.view.frame.origin.x / self.cellViewSize.width];
     [delegate freezeWindowView:self didSelectIndexPath:indexPath];
 }
+
+- (void)tapSectionToTop:(UITapGestureRecognizer *)tapGestureRecognizer {
+    [self.rowScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    [self reloadViews];
+}
+
+- (void)tapRowToLeft:(UITapGestureRecognizer *)tapFestureRecognizer {
+    [self.sectionScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    [self reloadViews];
+}
+
 - (void)setDataSource:(id<DQKFreezeWindowViewDataSource> __nullable)dataSource_ {
     if (dataSource != dataSource_) {
         dataSource = dataSource_;
@@ -213,6 +226,22 @@
         }
         default:
             break;
+    }
+}
+
+- (void)setTapToTop:(BOOL)tapToTop_ {
+    tapToTop = tapToTop_;
+    if (tapToTop) {
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSectionToTop:)];
+        [self.sectionScrollView addGestureRecognizer:tapGestureRecognizer];
+    }
+}
+
+- (void)setTapToLeft:(BOOL)tapToLeft_ {
+    tapToLeft = tapToLeft_;
+    if (tapToLeft) {
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRowToLeft:)];
+        [self.rowScrollView addGestureRecognizer:tapGestureRecognizer];
     }
 }
 
@@ -280,21 +309,24 @@
 #pragma mark - remove a cell
 - (void)removeMainViewCellWithIndexPath:(NSIndexPath *)indexPath {
     DQKMainViewCell *mainViewCell = [dataSource freezeWindowView:self cellForRowAtIndexPath:indexPath];
-    if (mainViewCell != nil & [mainViewCell superview] != nil) {
+    CGRect intersectionRect = CGRectIntersection(mainViewCell.frame, CGRectMake(self.mainScrollView.contentOffset.x, self.mainScrollView.contentOffset.y, self.mainScrollView.frame.size.width, self.mainScrollView.frame.size.height));
+    if (CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect)) {
         [mainViewCell removeFromSuperview];
     }
 }
 
 - (void)removeSectionViewCellWithSection:(NSInteger)section {
     DQKSectionViewCell *sectionViewCell = [dataSource freezeWindowView:self cellAtSection:section];
-    if (sectionViewCell != nil & [sectionViewCell superview] != nil) {
+    CGRect intersectionRect = CGRectIntersection(sectionViewCell.frame, CGRectMake(self.sectionScrollView.contentOffset.x, self.sectionScrollView.contentOffset.y, self.sectionScrollView.frame.size.width, self.sectionScrollView.frame.size.height));
+    if (CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect)) {
         [sectionViewCell removeFromSuperview];
     }
 }
 
 - (void)removeRowViewCellWithRow:(NSInteger)row {
     DQKRowViewCell *rowViewCell = [dataSource freezeWindowView:self cellAtRow:row];
-    if (rowViewCell != nil & [rowViewCell superview] != nil) {
+    CGRect intersectionRect = CGRectIntersection(rowViewCell.frame, CGRectMake(self.rowScrollView.contentOffset.x, self.rowScrollView.contentOffset.y, self.rowScrollView.frame.size.width, self.rowScrollView.frame.size.height));
+    if (CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect)) {
         [rowViewCell removeFromSuperview];
     }
 }

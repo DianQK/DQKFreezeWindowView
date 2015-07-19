@@ -12,6 +12,7 @@
 
 @interface ViewController () <DQKFreezeWindowViewDataSource, DQKFreezeWindowViewDelegate>
 @property (strong, nonatomic) DetailViewController *detailViewController;
+@property (strong, nonatomic) NSArray *timeArray;
 @end
 
 @implementation ViewController
@@ -28,6 +29,8 @@
     NSDateComponents *dateComponents = [self getDateWithDaySinceNow:0];
     NSString *monthStr = [NSString stringWithFormat:@"%@",[self getMonthStrWithMonth:[dateComponents month]]];
     [freezeWindowView setSignViewWithContent:monthStr];
+    // freezeWindowView.tapToTop = YES;
+    // freezeWindowView.tapToLeft = YES;
     self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     self.detailViewController.title = @"Event Details";
 }
@@ -42,18 +45,28 @@
 }
 
 - (NSInteger)numberOfRowsInFreezeWindowView:(DQKFreezeWindowView *)freezeWindowView {
-    return 10;
+    self.timeArray = @[@"00:00",@"01:00",@"02:00",@"03:00",@"04:00",@"05:00",@"06:00",@"07:00",@"08:00",@"09:00",@"10:00",@"11:00",@"12:00",@"13:00",@"14:00",@"15:00",@"16:00",@"17:00",@"18:00",@"19:00",@"20:00",@"21:00",@"22:00",@"23:00",@"00:00"];
+    return self.timeArray.count;
 }
 
 - (DQKMainViewCell *)freezeWindowView:(DQKFreezeWindowView *)freezeWindowView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *calendarCell = @"calendarCell";
-    DQKMainViewCell *mainCell = [freezeWindowView dequeueReusableMainCellWithIdentifier:calendarCell forIndexPath:indexPath];
-    NSString *mainCellContent = [NSString stringWithFormat:@"%ld %ld",(long)indexPath.section,(long)indexPath.row];
+    static NSString *eventCell = @"eventCell";
+    DQKMainViewCell *mainCell = [freezeWindowView dequeueReusableMainCellWithIdentifier:eventCell forIndexPath:indexPath];
     if (mainCell == nil) {
-        mainCell = [[DQKMainViewCell alloc] initWithStyle:DQKMainViewCellStyleDefault reuseIdentifier:calendarCell];
-        // mainCell.separatorStyle = DQKMainViewCellSeparatorStyleNone;
+        mainCell = [[DQKMainViewCell alloc] initWithStyle:DQKMainViewCellStyleCustom reuseIdentifier:eventCell];
+        if (indexPath.row == 3 && indexPath.section == 2) {
+            UIView *blueLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1.5, 1.5, 42)];
+            blueLineView.backgroundColor = [UIColor colorWithRed:56./255 green:157./255. blue:241./255. alpha:1];
+            [mainCell addSubview:blueLineView];
+            UILabel *eventLabel = [[UILabel alloc] initWithFrame:CGRectMake(1.5, 1.5, 100, 42)];
+            [eventLabel setTag:200];
+            eventLabel.backgroundColor = [UIColor colorWithRed:204./255. green:234./255. blue:252./255. alpha:1];
+            [eventLabel setFont:[UIFont systemFontOfSize:11]];
+            eventLabel.text = @"DianQK\n\n";
+            eventLabel.numberOfLines = 0;
+            [mainCell addSubview:eventLabel];
+        }
     }
-    mainCell.title = mainCellContent;
     return mainCell;
 }
 
@@ -72,11 +85,14 @@
         dateLabel.textAlignment = NSTextAlignmentCenter;
         [sectionCell addSubview:dateLabel];
         UILabel *weekLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, 103, 24)];
+        [weekLabel setFont:[UIFont systemFontOfSize:14]];
         weekLabel.text = [self getWeekStrWithWeek:[dateComponents weekday]];
         weekLabel.textAlignment = NSTextAlignmentCenter;
         [sectionCell addSubview:weekLabel];
         if (section == 2) {
             dateLabel.textColor = [UIColor whiteColor];
+            [dateLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
+            [weekLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
             UIView *nowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 34, 34)];
             nowView.center = dateLabel.center;
             nowView.layer.cornerRadius = 17;
@@ -90,19 +106,28 @@
 - (DQKRowViewCell *)freezeWindowView:(DQKFreezeWindowView *)freezeWindowView cellAtRow:(NSInteger)row {
     static NSString *timeCell = @"timeCell";
     DQKRowViewCell *rowCell = [freezeWindowView dequeueReusableRowCellWithIdentifier:timeCell forRow:row];
-    NSString *rowCellContent = [NSString stringWithFormat:@"%ld",(long)row];
     if (rowCell == nil) {
-        rowCell = [[DQKRowViewCell alloc] initWithStyle:DQKRowViewCellStyleDefault reuseIdentifier:timeCell];
-        // rowCell.separatorStyle = DQKSectionViewCellSeparatorStyleNone;
+        rowCell = [[DQKRowViewCell alloc] initWithStyle:DQKRowViewCellStyleCustom reuseIdentifier:timeCell];
+        UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 10, 41, 20)];
+        timeLabel.textColor = [UIColor colorWithRed:151./255. green:151./255. blue:151./255. alpha:1];
+        [timeLabel setFont:[UIFont systemFontOfSize:11]];
+        if (row >= 0 && row < self.timeArray.count) {
+            timeLabel.text = self.timeArray[row];
+            [rowCell addSubview:timeLabel];
+        }
     }
-    rowCell.title = rowCellContent;
     return rowCell;
 }
 
 - (void)freezeWindowView:(DQKFreezeWindowView *)freezeWindowView didSelectIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%ld %ld",(long)indexPath.section,(long)indexPath.row);
-    [self.navigationController pushViewController:self.detailViewController animated:YES];
-    
+    if (indexPath.row == 3 && indexPath.section == 2) {
+        DQKMainViewCell *mainViewCell = [freezeWindowView dequeueReusableMainCellWithIdentifier:@"eventCell" forIndexPath:indexPath];
+        if (mainViewCell) {
+            UILabel *eventLabel = (UILabel *)[mainViewCell viewWithTag:200];
+            self.detailViewController.title = eventLabel.text;
+        }
+        [self.navigationController pushViewController:self.detailViewController animated:YES];
+    }
 }
 
 - (NSDateComponents *)getDateWithDaySinceNow:(NSInteger)afterDay {

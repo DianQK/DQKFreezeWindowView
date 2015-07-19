@@ -35,6 +35,9 @@ typedef NS_ENUM(NSInteger, DQKFreezeWindowViewBounceStyle) {
 @property (assign, nonatomic) DQKFreezeWindowViewStyle style;
 @property (assign, nonatomic) DQKFreezeWindowViewBounceStyle bounceStyle;
 
+@property (assign, nonatomic, getter=isTapToTop) BOOL tapToTop;
+@property (assign, nonatomic, getter=isTapToLeft) BOOL tapToLeft;
+
 - (instancetype)initWithFrame:(CGRect)frame FreezePoint: (CGPoint) freezePoint cellViewSize: (CGSize) cellViewSize;
 
 - (void)setSignViewWithContent:(NSString *)content;
