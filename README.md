@@ -23,7 +23,7 @@ Also can use for many datas to show
 
 ## Usage   
 ###  Install   
-Just add `pod DQKFreezeWindowView` to your Podfile.    
+Just add `pod 'DQKFreezeWindowView'` to your Podfile.    
 ### Use   
 
 ```Objective-C  
