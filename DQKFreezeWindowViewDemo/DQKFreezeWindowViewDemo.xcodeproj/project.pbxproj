@@ -13,13 +13,13 @@
 		AAE0A85B1B5B507F00A62154 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAE0A8551B5B507F00A62154 /* DetailViewController.xib */; };
 		AAE0A85C1B5B507F00A62154 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8571B5B507F00A62154 /* AppDelegate.m */; };
 		AAE0A85D1B5B507F00A62154 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8591B5B507F00A62154 /* ViewController.m */; };
-		AAE0A86B1B5B50B300A62154 /* DQKFreezeWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8621B5B50B300A62154 /* DQKFreezeWindowView.m */; };
-		AAE0A86C1B5B50B300A62154 /* DQKMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8641B5B50B300A62154 /* DQKMainViewCell.m */; };
-		AAE0A86D1B5B50B300A62154 /* DQKRowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8661B5B50B300A62154 /* DQKRowViewCell.m */; };
-		AAE0A86E1B5B50B300A62154 /* DQKSectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8681B5B50B300A62154 /* DQKSectionViewCell.m */; };
-		AAE0A86F1B5B50B300A62154 /* DQKSignView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A86A1B5B50B300A62154 /* DQKSignView.m */; };
 		AAE0A8711B5B50FD00A62154 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE0A8701B5B50FD00A62154 /* Main.storyboard */; };
 		AAE0A8731B5B515E00A62154 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE0A8721B5B515E00A62154 /* LaunchScreen.storyboard */; };
+		AAE0A8C21B5B55C100A62154 /* DQKFreezeWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8B91B5B55C100A62154 /* DQKFreezeWindowView.m */; };
+		AAE0A8C31B5B55C100A62154 /* DQKMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8BB1B5B55C100A62154 /* DQKMainViewCell.m */; };
+		AAE0A8C41B5B55C100A62154 /* DQKRowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8BD1B5B55C100A62154 /* DQKRowViewCell.m */; };
+		AAE0A8C51B5B55C100A62154 /* DQKSectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8BF1B5B55C100A62154 /* DQKSectionViewCell.m */; };
+		AAE0A8C61B5B55C100A62154 /* DQKSignView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8C11B5B55C100A62154 /* DQKSignView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,18 +34,18 @@
 		AAE0A8571B5B507F00A62154 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AAE0A8581B5B507F00A62154 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		AAE0A8591B5B507F00A62154 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		AAE0A8611B5B50B300A62154 /* DQKFreezeWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKFreezeWindowView.h; sourceTree = "<group>"; };
-		AAE0A8621B5B50B300A62154 /* DQKFreezeWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKFreezeWindowView.m; sourceTree = "<group>"; };
-		AAE0A8631B5B50B300A62154 /* DQKMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKMainViewCell.h; sourceTree = "<group>"; };
-		AAE0A8641B5B50B300A62154 /* DQKMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKMainViewCell.m; sourceTree = "<group>"; };
-		AAE0A8651B5B50B300A62154 /* DQKRowViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKRowViewCell.h; sourceTree = "<group>"; };
-		AAE0A8661B5B50B300A62154 /* DQKRowViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKRowViewCell.m; sourceTree = "<group>"; };
-		AAE0A8671B5B50B300A62154 /* DQKSectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKSectionViewCell.h; sourceTree = "<group>"; };
-		AAE0A8681B5B50B300A62154 /* DQKSectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKSectionViewCell.m; sourceTree = "<group>"; };
-		AAE0A8691B5B50B300A62154 /* DQKSignView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKSignView.h; sourceTree = "<group>"; };
-		AAE0A86A1B5B50B300A62154 /* DQKSignView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKSignView.m; sourceTree = "<group>"; };
 		AAE0A8701B5B50FD00A62154 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AAE0A8721B5B515E00A62154 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AAE0A8B81B5B55C100A62154 /* DQKFreezeWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKFreezeWindowView.h; sourceTree = "<group>"; };
+		AAE0A8B91B5B55C100A62154 /* DQKFreezeWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKFreezeWindowView.m; sourceTree = "<group>"; };
+		AAE0A8BA1B5B55C100A62154 /* DQKMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKMainViewCell.h; sourceTree = "<group>"; };
+		AAE0A8BB1B5B55C100A62154 /* DQKMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKMainViewCell.m; sourceTree = "<group>"; };
+		AAE0A8BC1B5B55C100A62154 /* DQKRowViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKRowViewCell.h; sourceTree = "<group>"; };
+		AAE0A8BD1B5B55C100A62154 /* DQKRowViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKRowViewCell.m; sourceTree = "<group>"; };
+		AAE0A8BE1B5B55C100A62154 /* DQKSectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKSectionViewCell.h; sourceTree = "<group>"; };
+		AAE0A8BF1B5B55C100A62154 /* DQKSectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKSectionViewCell.m; sourceTree = "<group>"; };
+		AAE0A8C01B5B55C100A62154 /* DQKSignView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKSignView.h; sourceTree = "<group>"; };
+		AAE0A8C11B5B55C100A62154 /* DQKSignView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKSignView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,7 @@
 		AAE0A83B1B5B502300A62154 /* DQKFreezeWindowViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				AAE0A8601B5B50B300A62154 /* DQKFreezeWindowView */,
+				AAE0A8B71B5B55C100A62154 /* DQKFreezeWindowView */,
 				AAE0A8531B5B507F00A62154 /* DetailViewController.h */,
 				AAE0A8541B5B507F00A62154 /* DetailViewController.m */,
 				AAE0A8551B5B507F00A62154 /* DetailViewController.xib */,
@@ -103,21 +103,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AAE0A8601B5B50B300A62154 /* DQKFreezeWindowView */ = {
+		AAE0A8B71B5B55C100A62154 /* DQKFreezeWindowView */ = {
 			isa = PBXGroup;
 			children = (
-				AAE0A8611B5B50B300A62154 /* DQKFreezeWindowView.h */,
-				AAE0A8621B5B50B300A62154 /* DQKFreezeWindowView.m */,
-				AAE0A8631B5B50B300A62154 /* DQKMainViewCell.h */,
-				AAE0A8641B5B50B300A62154 /* DQKMainViewCell.m */,
-				AAE0A8651B5B50B300A62154 /* DQKRowViewCell.h */,
-				AAE0A8661B5B50B300A62154 /* DQKRowViewCell.m */,
-				AAE0A8671B5B50B300A62154 /* DQKSectionViewCell.h */,
-				AAE0A8681B5B50B300A62154 /* DQKSectionViewCell.m */,
-				AAE0A8691B5B50B300A62154 /* DQKSignView.h */,
-				AAE0A86A1B5B50B300A62154 /* DQKSignView.m */,
+				AAE0A8B81B5B55C100A62154 /* DQKFreezeWindowView.h */,
+				AAE0A8B91B5B55C100A62154 /* DQKFreezeWindowView.m */,
+				AAE0A8BA1B5B55C100A62154 /* DQKMainViewCell.h */,
+				AAE0A8BB1B5B55C100A62154 /* DQKMainViewCell.m */,
+				AAE0A8BC1B5B55C100A62154 /* DQKRowViewCell.h */,
+				AAE0A8BD1B5B55C100A62154 /* DQKRowViewCell.m */,
+				AAE0A8BE1B5B55C100A62154 /* DQKSectionViewCell.h */,
+				AAE0A8BF1B5B55C100A62154 /* DQKSectionViewCell.m */,
+				AAE0A8C01B5B55C100A62154 /* DQKSignView.h */,
+				AAE0A8C11B5B55C100A62154 /* DQKSignView.m */,
 			);
-			path = DQKFreezeWindowView;
+			name = DQKFreezeWindowView;
+			path = ../../DQKFreezeWindowView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,13 +194,13 @@
 			files = (
 				AAE0A83E1B5B502300A62154 /* main.m in Sources */,
 				AAE0A85A1B5B507F00A62154 /* DetailViewController.m in Sources */,
-				AAE0A86C1B5B50B300A62154 /* DQKMainViewCell.m in Sources */,
+				AAE0A8C31B5B55C100A62154 /* DQKMainViewCell.m in Sources */,
 				AAE0A85D1B5B507F00A62154 /* ViewController.m in Sources */,
 				AAE0A85C1B5B507F00A62154 /* AppDelegate.m in Sources */,
-				AAE0A86B1B5B50B300A62154 /* DQKFreezeWindowView.m in Sources */,
-				AAE0A86F1B5B50B300A62154 /* DQKSignView.m in Sources */,
-				AAE0A86D1B5B50B300A62154 /* DQKRowViewCell.m in Sources */,
-				AAE0A86E1B5B50B300A62154 /* DQKSectionViewCell.m in Sources */,
+				AAE0A8C21B5B55C100A62154 /* DQKFreezeWindowView.m in Sources */,
+				AAE0A8C61B5B55C100A62154 /* DQKSignView.m in Sources */,
+				AAE0A8C41B5B55C100A62154 /* DQKRowViewCell.m in Sources */,
+				AAE0A8C51B5B55C100A62154 /* DQKSectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +330,7 @@
 				AAE0A8521B5B502300A62154 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
