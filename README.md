@@ -1,41 +1,41 @@
-# DQKFreezeWindowView
+# DQKFreezeWindowView    
+![](https://img.shields.io/cocoapods/v/DQKFreezeWindowView.svg?style=flat) 
+![](https://img.shields.io/cocoapods/l/DQKFreezeWindowView.svg?style=flat) 
+![](https://img.shields.io/cocoapods/p/DQKFreezeWindowView.svg?style=flat) 
+   
 A freeze window effect view for iOS.   
-Just like office excel.   
-Use `DQKFreezeWindowView` just like `UITableView`,it's similar.
-You can use it for:   
+Just like Office Excel.   
 
-* Calendar
-* Show Data
-* Syllabus   
-* To Do Lists
-* ...
+<center>
+![Demo](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/DemoVideo.gif)
+</center>   
 
-## Why You Should Use DQKFreezeWindowView   
-Look follow this picture:
-![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/DemoScreenshot.png)![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/AppleScreenshot.png)   
-The second picture is Apple Calendar App. Also when you use Calendar, you can't scroll view to horizontal direction after scrolling view to vertical direction instantly, which like a bug.    
-Support **Delegate** and **DataSource** !!!   
-Here is a gif to show    
-*If you find it delay, don't worry, just because it's a bit large (3.7 MB)*    
-![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/DemoVideo.gif)   
-Also can use for many datas to show   
-![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/ExampleVideo.gif)   
+> Note:   
+> If this GIF(3.7 MB) looks not well, please [refresh](https://github.com/DianQK/DQKFreezeWindowView).     
 
 ## Usage   
 ###  Install   
-Just add `pod 'DQKFreezeWindowView'` to your Podfile.    
+Just add `pod 'DQKFreezeWindowView'` to your Podfile and `pod install`.    
+
 ### Use   
+> Use `DQKFreezeWindowView` just like `UITableView`,it's similar but also powerful.   
+
+
+`#import "DQKFreezeWindowView.h"` anywhere you want to use.   
+Initialize the freezeWindowView:   
 
 ```Objective-C  
-#import "DQKFreezeWindowView.h" 
-
-
 DQKFreezeWindowView *freezeWindowView = [[DQKFreezeWindowView alloc] initWithFrame:frame];
     [self.view addSubview:freezeWindowView];
     freezeWindowView.dataSource = self;
     freezeWindowView.delegate = self;
-```
-dataSource implementation:   
+```    
+
+> Note:   
+> **sectionCell** at the top, **rowCell** at the left.    
+> <center>![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/ScrollViewPosition.png)</center>   
+
+Incomplete implementation (dataSource):   
 
 ```Objective-C
 - (NSInteger)numberOfSectionsInFreezeWindowView:(DQKFreezeWindowView *)freezeWindowView {
@@ -51,6 +51,7 @@ dataSource implementation:
     DQKMainViewCell *mainCell = [freezeWindowView dequeueReusableMainCellWithIdentifier:mainCell forIndexPath:indexPath];
     if (mainCell == nil) {
         mainCell = [[DQKMainViewCell alloc] initWithStyle:DQKMainViewCellStyleDefault reuseIdentifier:calendarCell];
+        mainCell.title = @"mainCell";
     }
     return mainCell;
 }
@@ -60,7 +61,7 @@ dataSource implementation:
     DQKSectionViewCell *sectionCell = [freezeWindowView dequeueReusableSectionCellWithIdentifier:dayCell forSection:section];
     if (sectionCell == nil) {
         sectionCell = [[DQKSectionViewCell alloc] initWithStyle:DQKSectionViewCellStyleDefault reuseIdentifier:dayCell];
-        sectionCell.title = sectionCellContent;
+        sectionCell.title = @"sectionCell";
     }
     return sectionCell;
 }
@@ -70,12 +71,12 @@ dataSource implementation:
     DQKRowViewCell *rowCell = [freezeWindowView dequeueReusableRowCellWithIdentifier:timeCell forRow:row];
     if (rowCell == nil) {
         rowCell = [[DQKRowViewCell alloc] initWithStyle:DQKRowViewCellStyleDefault reuseIdentifier:timeCell];
-        rowCell.title = rowCellContent;
+        rowCell.title = @"rowCell";
     }
     return rowCell;
 }
 ```   
-delegate implementation:   
+Incomplete implementation (delegate):   
 
 ```Objective-C
 - (void)freezeWindowView:(DQKFreezeWindowView *)freezeWindowView didSelectIndexPath:(NSIndexPath *)indexPath {
@@ -84,21 +85,58 @@ delegate implementation:
     [alertView show];
 }
 ```   
-> Note:   
-**sectionCell** at the top, **rowCell** at the left.   
-For more information, you can see the example and the demo.   
 
-## Other  
+> Note:
+> For more information, you can see **DQKFreezeWindowViewExample** and **DQKFreezeWindowViewDemo**. I prefer to **DQKFreezeWindowViewDemo**, it's interesting.   
+
+
+
+
+
+## Other    
+
+### When You Should Use DQKFreezeWindowView   
+You can use it for:   
+
+* Calendar
+* Show Data
+* Syllabus   
+* To Do Lists
+* ...    
+
+### Why You should Try DQKFreezeWindowView   
+1. **Physical**   
+Look follow this picture:   
+<div>
+<img src="https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/AppleScreenshot.png" width="50%" height="50%" align="left"></img>
+<img src="https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/DemoScreenshot.png" width="50%" height="50%" align="right"></img>
+</div>
+  
+The right picture is **Calendar** screenshot. When you use Calendar, you can't scroll view to horizontal direction after scrolling view to vertical direction instantly, which like a bug.    
+
+2. **Powerful**   
+Also can use for many datas to show   
+![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/ExampleVideo.gif)   
+
+3. **Multiplex**   
 You can set `DQKFreezeWindowView.bounceStyle`.   
-![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/DQKFreezeWindowViewBounceStyleMain.png)   
 
-![](https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/DQKFreezeWindowViewBounceStyleAll.png)    
-### Beta   
+<div>
+<img src="https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/DQKFreezeWindowViewBounceStyleMain.png" width="50%" height="50%" align="left"></img>
+<img src="https://raw.githubusercontent.com/DianQK/DQKFreezeWindowView/master/Screenshots/DQKFreezeWindowViewBounceStyleAll.png" width="50%" height="50%" align="right"></img>
+</div>    
+    
+> More style you can see the project *.h file.
+
+### Beta Function   
+
 * Tap Section to Top / Tap Row to Left
 * Detect A Cell Position
 * A Delegate -- When A Cell at A Key Position
 
 ## To Do    
+
+* Expand cell function
 * Fix some cell miss when you scroll fast
 * Fix **Beta** some bug
 * Add more style   
