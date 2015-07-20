@@ -132,7 +132,11 @@ You can set `DQKFreezeWindowView.bounceStyle`.
 
 * Tap Section to Top / Tap Row to Left
 * Detect A Cell Position
-* A Delegate -- When A Cell at A Key Position
+* A Delegate -- When A Cell at A Key Position     
+
+### Implementation    
+If you are interesting my project, you can see **OtherSource** . I put a part of Implementation.    
+> An Article in Chinese. 
 
 ## To Do    
 
