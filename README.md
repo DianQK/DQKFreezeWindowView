@@ -136,7 +136,12 @@ You can set `DQKFreezeWindowView.bounceStyle`.
 
 ### Implementation    
 If you are interesting my project, you can see **OtherSource** . I put a part of Implementation.    
-> An Article in Chinese. 
+> An Article in Chinese.     
+
+## Release Note   
+* 0.9.1 Add AutoAligning    
+You can set `autoHorizontalAligning` or `autoVerticalAligning` is `YES`.    
+You can see the `autoHorizontalAligning` effect on **DQKFreezeWindowViewDemo**. 
 
 ## To Do    
 
