@@ -28,6 +28,8 @@
     self = [super init];
     if (self) {
         _reuseIdentifier = reuseIdentifier;
+        _rowNumber = 1;
+        _sectionNumber = 1;
         [self addLine];
         switch (style) {
             case DQKMainViewCellStyleDefault:

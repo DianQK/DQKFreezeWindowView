@@ -386,7 +386,7 @@
                 UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMainViewCell:)];
                 [mainViewCell addGestureRecognizer:gestureRecognizer];
             }
-            [mainViewCell setFrame:CGRectMake(indexPath.section * self.cellViewSize.width, indexPath.row * self.cellViewSize.height, self.cellViewSize.width, self.cellViewSize.height)];
+            [mainViewCell setFrame:CGRectMake(indexPath.section * self.cellViewSize.width, indexPath.row * self.cellViewSize.height, self.cellViewSize.width * mainViewCell.sectionNumber, self.cellViewSize.height * mainViewCell.rowNumber)];
             NSMutableDictionary *mainCellsWithIndexPath = [self.cellIdentifier objectForKey:mainReuseIdentifier];
             if (mainCellsWithIndexPath == nil) {
                 mainCellsWithIndexPath = [[NSMutableDictionary alloc] init];

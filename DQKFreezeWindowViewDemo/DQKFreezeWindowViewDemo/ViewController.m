@@ -57,10 +57,11 @@
     if (mainCell == nil) {
         mainCell = [[DQKMainViewCell alloc] initWithStyle:DQKMainViewCellStyleCustom reuseIdentifier:eventCell];
         if (indexPath.row == 3 && indexPath.section == 2) {
-            UIView *blueLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1.5, 1.5, 42)];
+      
+            UIView *blueLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1.5, 1.5, 42 * 2)];
             blueLineView.backgroundColor = [UIColor colorWithRed:56./255 green:157./255. blue:241./255. alpha:1];
             [mainCell addSubview:blueLineView];
-            UILabel *eventLabel = [[UILabel alloc] initWithFrame:CGRectMake(1.5, 1.5, 100, 42)];
+            UILabel *eventLabel = [[UILabel alloc] initWithFrame:CGRectMake(1.5, 1.5, 100, 42 * 2)];
             [eventLabel setTag:200];
             eventLabel.backgroundColor = [UIColor colorWithRed:204./255. green:234./255. blue:252./255. alpha:1];
             [eventLabel setFont:[UIFont systemFontOfSize:11]];

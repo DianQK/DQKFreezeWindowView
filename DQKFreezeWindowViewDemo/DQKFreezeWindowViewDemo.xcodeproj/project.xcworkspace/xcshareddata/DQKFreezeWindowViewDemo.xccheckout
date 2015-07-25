@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>9CBD6B52-B1FD-4261-A33D-3AC12DDF0A0F</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>DQKFreezeWindowViewDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>C81DA7B6204CD1D48992BAF55F9F3B199B7D2B2D</key>
 		<string>https://github.com/DianQK/DQKFreezeWindowView.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>DQKFreezeWindowViewDemo/DQKFreezeWindowViewDemo.xcodeproj/project.xcworkspace</string>
+	<string>DQKFreezeWindowViewDemo/DQKFreezeWindowViewDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C81DA7B6204CD1D48992BAF55F9F3B199B7D2B2D</key>

@@ -27,5 +27,7 @@ typedef NS_ENUM(NSInteger, DQKMainViewCellSeparatorStyle) {
 @property (strong, nonatomic) NSString *title;
 @property (readonly, assign, nonatomic) DQKMainViewCellStyle style;
 @property (assign, nonatomic) DQKMainViewCellSeparatorStyle separatorStyle;
+@property (assign, nonatomic) NSInteger rowNumber;
+@property (assign, nonatomic) NSInteger sectionNumber;
 
 @end
