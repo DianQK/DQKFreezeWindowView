@@ -15,7 +15,7 @@ Just like Office Excel.
 
 ## Usage   
 ###  Install   
-Just add `pod 'DQKFreezeWindowView'` to your Podfile and `pod install`.    
+Just add `pod 'DQKFreezeWindowView', '~> 0.9.1'` to your Podfile and `pod install`.    
 
 ### Use   
 > Use `DQKFreezeWindowView` just like `UITableView`,it's similar but also powerful.   
