@@ -31,6 +31,7 @@
     NSDateComponents *dateComponents = [self getDateWithDaySinceNow:0];
     NSString *monthStr = [NSString stringWithFormat:@"%@",[self getMonthStrWithMonth:[dateComponents month]]];
     [freezeWindowView setSignViewWithContent:monthStr];
+    freezeWindowView.autoHorizontalAligning = YES;
     self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     self.detailViewController.title = @"Event Details";
 }

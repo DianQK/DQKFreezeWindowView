@@ -24,7 +24,6 @@
     freezeWindowView.delegate = self;
     [freezeWindowView setSignViewWithContent:@"DQK"];
     [freezeWindowView setSignViewBackgroundColor:[UIColor colorWithRed:245./255. green:245./255. blue:245./255. alpha:1.]];
-    freezeWindowView.style = DQKFreezeWindowViewStyleRowOnLine;
 }
 
 - (NSInteger)numberOfSectionsInFreezeWindowView:(DQKFreezeWindowView *)freezeWindowView {

@@ -19,6 +19,7 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.rightBarButtonItem = rightItem;
     self.navigationController.navigationBar.tintColor = [UIColor redColor];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {

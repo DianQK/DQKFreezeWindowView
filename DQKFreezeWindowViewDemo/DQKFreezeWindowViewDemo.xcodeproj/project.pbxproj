@@ -14,7 +14,6 @@
 		AAE0A85C1B5B507F00A62154 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8571B5B507F00A62154 /* AppDelegate.m */; };
 		AAE0A85D1B5B507F00A62154 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8591B5B507F00A62154 /* ViewController.m */; };
 		AAE0A8711B5B50FD00A62154 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE0A8701B5B50FD00A62154 /* Main.storyboard */; };
-		AAE0A8731B5B515E00A62154 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE0A8721B5B515E00A62154 /* LaunchScreen.storyboard */; };
 		AAE0A8C21B5B55C100A62154 /* DQKFreezeWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8B91B5B55C100A62154 /* DQKFreezeWindowView.m */; };
 		AAE0A8C31B5B55C100A62154 /* DQKMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8BB1B5B55C100A62154 /* DQKMainViewCell.m */; };
 		AAE0A8C41B5B55C100A62154 /* DQKRowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0A8BD1B5B55C100A62154 /* DQKRowViewCell.m */; };
@@ -35,7 +34,6 @@
 		AAE0A8581B5B507F00A62154 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		AAE0A8591B5B507F00A62154 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AAE0A8701B5B50FD00A62154 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		AAE0A8721B5B515E00A62154 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAE0A8B81B5B55C100A62154 /* DQKFreezeWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKFreezeWindowView.h; sourceTree = "<group>"; };
 		AAE0A8B91B5B55C100A62154 /* DQKFreezeWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQKFreezeWindowView.m; sourceTree = "<group>"; };
 		AAE0A8BA1B5B55C100A62154 /* DQKMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQKMainViewCell.h; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 				AAE0A8571B5B507F00A62154 /* AppDelegate.m */,
 				AAE0A8481B5B502300A62154 /* Assets.xcassets */,
 				AAE0A8701B5B50FD00A62154 /* Main.storyboard */,
-				AAE0A8721B5B515E00A62154 /* LaunchScreen.storyboard */,
 				AAE0A84D1B5B502300A62154 /* Info.plist */,
 				AAE0A83C1B5B502300A62154 /* Supporting Files */,
 			);
@@ -179,7 +176,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE0A85B1B5B507F00A62154 /* DetailViewController.xib in Resources */,
-				AAE0A8731B5B515E00A62154 /* LaunchScreen.storyboard in Resources */,
 				AAE0A8491B5B502300A62154 /* Assets.xcassets in Resources */,
 				AAE0A8711B5B50FD00A62154 /* Main.storyboard in Resources */,
 			);

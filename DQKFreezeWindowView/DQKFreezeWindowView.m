@@ -158,7 +158,28 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(nonnull UIScrollView *)scrollView {
+    [self autoAligning];
     [self reloadViews];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        [self autoAligning];
+    }
+}
+
+- (void)autoAligning {
+    if (self.autoHorizontalAligning && !self.autoVerticalAligning) {
+        float multipleX = roundf(self.mainScrollView.contentOffset.x / self.cellViewSize.width);
+        [self.mainScrollView setContentOffset:CGPointMake(self.cellViewSize.width * multipleX, self.mainScrollView.contentOffset.y) animated:YES];
+    } else if (self.autoVerticalAligning && !self.autoHorizontalAligning) {
+        float mutipleY = roundf(self.mainScrollView.contentOffset.y / self.cellViewSize.height);
+        [self.mainScrollView setContentOffset:CGPointMake(self.mainScrollView.contentOffset.x, self.cellViewSize.height * mutipleY) animated:YES];
+    } else if (self.autoHorizontalAligning && self.autoVerticalAligning) {
+        float multipleX = roundf(self.mainScrollView.contentOffset.x / self.cellViewSize.width);
+        float mutipleY = roundf(self.mainScrollView.contentOffset.y / self.cellViewSize.height);
+        [self.mainScrollView setContentOffset:CGPointMake(self.cellViewSize.width * multipleX, self.cellViewSize.height * mutipleY) animated:YES];
+    }
 }
 
 - (void)sectionCellInSectionScrollView {
@@ -301,7 +322,7 @@
         [self addMainViewCellWithIndexPath:[NSIndexPath indexPathForRow:rowNext inSection:sectionMax]];
         [self removeMainViewCellWithIndexPath:[NSIndexPath indexPathForRow:rowNext inSection:section - 1]];
         [self removeMainViewCellWithIndexPath:[NSIndexPath indexPathForRow:rowNext inSection:sectionMax + 1]];
-
+        
     }
     [self addSectionViewCellWithSection:section];
     [self addSectionViewCellWithSection:sectionMax];

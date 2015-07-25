@@ -52,6 +52,8 @@ typedef NS_ENUM(NSInteger, DQKFreezeWindowViewBounceStyle) {
 @property (nonatomic) BOOL showsHorizontalScrollIndicator;
 @property (nonatomic) BOOL showsVerticalScrollIndicator;
 @property (strong, nonatomic) NSIndexPath *keyIndexPath;
+@property (nonatomic) BOOL autoHorizontalAligning;
+@property (nonatomic) BOOL autoVerticalAligning;
 
 @end
 
