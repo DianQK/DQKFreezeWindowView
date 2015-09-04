@@ -21,9 +21,6 @@
 
 @implementation DQKMainViewCell
 
-@synthesize title;
-@synthesize separatorStyle;
-
 - (instancetype)initWithStyle:(DQKMainViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super init];
     if (self) {
@@ -53,13 +50,13 @@
 }
 
 
-- (void)setTitle:(NSString *)title_ {
-    title = title_;
+- (void)setTitle:(NSString *)title {
+    _title = title;
     self.titleLabel.text = title;
 }
 
-- (void)setSeparatorStyle:(DQKMainViewCellSeparatorStyle)separatorStyle_ {
-    separatorStyle = separatorStyle_;
+- (void)setSeparatorStyle:(DQKMainViewCellSeparatorStyle)separatorStyle {
+    _separatorStyle = separatorStyle;
     if (separatorStyle == DQKMainViewCellSeparatorStyleNone) {
         [self removeLine];
     }

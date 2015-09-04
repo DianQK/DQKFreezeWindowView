@@ -16,8 +16,6 @@
 
 @implementation DQKSignView
 
-@synthesize content;
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -28,13 +26,9 @@
     return self;
 }
 
-- (void)setContent:(NSString *)content_ {
-    content = content_;
+- (void)setContent:(NSString *)content {
+    _content = content;
     self.contentLabel.text = content;
-}
-
-- (NSString *)getContent {
-    return content;
 }
 
 @end

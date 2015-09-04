@@ -17,9 +17,6 @@
 
 @implementation DQKRowViewCell
 
-@synthesize title;
-@synthesize separatorStyle;
-
 - (instancetype)initWithStyle:(DQKRowViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super init];
     if (self) {
@@ -46,13 +43,13 @@
     return self;
 }
 
-- (void)setTitle:(NSString *)title_ {
-    title = title_;
+- (void)setTitle:(NSString *)title {
+    _title = title;
     self.titleLabel.text = title;
 }
 
-- (void)setSeparatorStyle:(DQKRowViewCellSeparatorStyle)separatorStyle_ {
-    separatorStyle = separatorStyle_;
+- (void)setSeparatorStyle:(DQKRowViewCellSeparatorStyle)separatorStyle {
+    _separatorStyle = separatorStyle;
     if (separatorStyle == DQKRowViewCellSeparatorStyleNone) {
         [self removeLine];
     }

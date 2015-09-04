@@ -24,15 +24,6 @@
 
 @implementation DQKFreezeWindowView
 
-@synthesize dataSource;
-@synthesize delegate;
-@synthesize style;
-@synthesize bounceStyle;
-@synthesize tapToTop;
-@synthesize tapToLeft;
-@synthesize showsHorizontalScrollIndicator;
-@synthesize showsVerticalScrollIndicator;
-
 - (instancetype)initWithFrame:(CGRect)frame FreezePoint: (CGPoint) freezePoint cellViewSize: (CGSize) cellViewSize {
     self = [super initWithFrame:frame];
     if (self) {
@@ -183,14 +174,14 @@
 }
 
 - (void)sectionCellInSectionScrollView {
-    if (delegate) {
+    if (_delegate) {
         if (self.keyIndexPath != nil) {
-            DQKSectionViewCell *sectionViewCell = [delegate sectionCellPointInfreezeWindowView:self];
+            DQKSectionViewCell *sectionViewCell = [_delegate sectionCellPointInfreezeWindowView:self];
             if ([sectionViewCell superview]) {
                 NSInteger cellAtSection = (sectionViewCell.frame.origin.x - self.mainScrollView.contentOffset.x) / self.cellViewSize.width;
                 if (cellAtSection == self.keyIndexPath.section) {
                     NSInteger section = sectionViewCell.frame.origin.x / self.cellViewSize.width;
-                    [delegate sectionCellReachKey:sectionViewCell withSection:section];
+                    [_delegate sectionCellReachKey:sectionViewCell withSection:section];
                 }
             }
         }
@@ -199,7 +190,7 @@
 
 - (void)tapMainViewCell:(UITapGestureRecognizer *) tapGestureRecognizer {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:tapGestureRecognizer.view.frame.origin.y / self.cellViewSize.height inSection:tapGestureRecognizer.view.frame.origin.x / self.cellViewSize.width];
-    [delegate freezeWindowView:self didSelectIndexPath:indexPath];
+    [_delegate freezeWindowView:self didSelectIndexPath:indexPath];
 }
 
 - (void)tapSectionToTop:(UITapGestureRecognizer *)tapGestureRecognizer {
@@ -212,25 +203,25 @@
     [self reloadViews];
 }
 
-- (void)setDataSource:(id<DQKFreezeWindowViewDataSource> __nullable)dataSource_ {
-    if (dataSource != dataSource_) {
-        dataSource = dataSource_;
+- (void)setDataSource:(id<DQKFreezeWindowViewDataSource> __nullable)dataSource {
+    if (_dataSource != dataSource) {
+        _dataSource = dataSource;
         [self setContentSize];
     }
 }
 
-- (void)setDelegate:(id<DQKFreezeWindowViewDelegate> __nullable)delegate_ {
-    if (delegate != delegate_) {
-        delegate = delegate_;
+- (void)setDelegate:(id<DQKFreezeWindowViewDelegate> __nullable)delegate {
+    if (_delegate != delegate) {
+        _delegate = delegate;
     }
 }
 
-- (void)setStyle:(DQKFreezeWindowViewStyle)style_ {
-    style = style_;
+- (void)setStyle:(DQKFreezeWindowViewStyle)style {
+    _style = style;
 }
 
-- (void)setBounceStyle:(DQKFreezeWindowViewBounceStyle)bounceStyle_ {
-    bounceStyle = bounceStyle_;
+- (void)setBounceStyle:(DQKFreezeWindowViewBounceStyle)bounceStyle {
+    _bounceStyle = bounceStyle;
     switch (bounceStyle) {
         case DQKFreezeWindowViewBounceStyleNone:
         {
@@ -257,24 +248,24 @@
     }
 }
 
-- (void)setTapToTop:(BOOL)tapToTop_ {
-    tapToTop = tapToTop_;
+- (void)setTapToTop:(BOOL)tapToTop {
+    _tapToTop = tapToTop;
     if (tapToTop) {
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSectionToTop:)];
         [self.sectionScrollView addGestureRecognizer:tapGestureRecognizer];
     }
 }
 
-- (void)setTapToLeft:(BOOL)tapToLeft_ {
-    tapToLeft = tapToLeft_;
+- (void)setTapToLeft:(BOOL)tapToLeft {
+    _tapToLeft = tapToLeft;
     if (tapToLeft) {
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRowToLeft:)];
         [self.rowScrollView addGestureRecognizer:tapGestureRecognizer];
     }
 }
 
-- (void)setShowsHorizontalScrollIndicator:(BOOL)showsHorizontalScrollIndicator_ {
-    showsHorizontalScrollIndicator = showsHorizontalScrollIndicator_;
+- (void)setShowsHorizontalScrollIndicator:(BOOL)showsHorizontalScrollIndicator {
+    _showsHorizontalScrollIndicator = showsHorizontalScrollIndicator;
     if (showsHorizontalScrollIndicator) {
         self.mainScrollView.showsHorizontalScrollIndicator = YES;
     } else {
@@ -282,8 +273,8 @@
     }
 }
 
-- (void)setShowsVerticalScrollIndicator:(BOOL)showsVerticalScrollIndicator_ {
-    showsVerticalScrollIndicator = showsVerticalScrollIndicator_;
+- (void)setShowsVerticalScrollIndicator:(BOOL)showsVerticalScrollIndicator {
+    _showsVerticalScrollIndicator = showsVerticalScrollIndicator;
     if (showsVerticalScrollIndicator) {
         self.mainScrollView.showsVerticalScrollIndicator = YES;
     } else {
@@ -292,8 +283,8 @@
 }
 
 - (void)setContentSize {
-    NSInteger sectionNumber = [dataSource numberOfSectionsInFreezeWindowView:self];
-    NSInteger rowNumber = [dataSource numberOfRowsInFreezeWindowView:self];
+    NSInteger sectionNumber = [_dataSource numberOfSectionsInFreezeWindowView:self];
+    NSInteger rowNumber = [_dataSource numberOfRowsInFreezeWindowView:self];
     [self.mainScrollView setContentSize:CGSizeMake(self.cellViewSize.width * sectionNumber, self.cellViewSize.height * rowNumber)];
     [self.sectionScrollView setContentSize:CGSizeMake(self.cellViewSize.width * sectionNumber, 0)];
     [self.rowScrollView setContentSize:CGSizeMake(0, self.cellViewSize.height * rowNumber)];
@@ -304,12 +295,12 @@
     NSInteger section = ((NSInteger)(self.mainScrollView.contentOffset.x - 0.5) / self.cellViewSize.width - 1) < 0 ? 0 : ((NSInteger)(self.mainScrollView.contentOffset.x - 0.5) / self.cellViewSize.width - 1);
     NSInteger row = ((NSInteger)(self.mainScrollView.contentOffset.y - 0.5) / self.cellViewSize.height - 1) < 0 ? 0 : ((NSInteger)(self.mainScrollView.contentOffset.y - 0.5) / self.cellViewSize.height - 1);
     NSInteger sectionMax = (self.mainScrollView.contentOffset.x - 0.5) / self.cellViewSize.width + self.mainScrollView.frame.size.width / self.cellViewSize.width + 2;
-    if (sectionMax >= [dataSource numberOfSectionsInFreezeWindowView:self]) {
-        sectionMax = [dataSource numberOfSectionsInFreezeWindowView:self] - 1;
+    if (sectionMax >= [_dataSource numberOfSectionsInFreezeWindowView:self]) {
+        sectionMax = [_dataSource numberOfSectionsInFreezeWindowView:self] - 1;
     }
     NSInteger rowMax = (self.mainScrollView.contentOffset.y - 0.5) / self.cellViewSize.height + self.mainScrollView.frame.size.height / self.cellViewSize.height + 2;
-    if (rowMax >= [dataSource numberOfRowsInFreezeWindowView:self]) {
-        rowMax = [dataSource numberOfRowsInFreezeWindowView:self] - 1;
+    if (rowMax >= [_dataSource numberOfRowsInFreezeWindowView:self]) {
+        rowMax = [_dataSource numberOfRowsInFreezeWindowView:self] - 1;
     }
     for (NSInteger sectionNext = section < 0 ? 0 : section; sectionNext <= sectionMax; sectionNext++) {
         [self addMainViewCellWithIndexPath:[NSIndexPath indexPathForRow:row inSection:sectionNext]];
@@ -335,8 +326,8 @@
 }
 
 - (void)reloadViews {
-    NSInteger sectionNumber = [dataSource numberOfSectionsInFreezeWindowView:self];
-    NSInteger rowNumber = [dataSource numberOfRowsInFreezeWindowView:self];
+    NSInteger sectionNumber = [_dataSource numberOfSectionsInFreezeWindowView:self];
+    NSInteger rowNumber = [_dataSource numberOfRowsInFreezeWindowView:self];
     NSInteger sectionInScreen = self.mainScrollView.contentOffset.x / self.cellViewSize.width + self.mainScrollView.frame.size.width / self.cellViewSize.width + 3;
     NSInteger rowInScreen = self.mainScrollView.contentOffset.y / self.cellViewSize.height + self.mainScrollView.frame.size.height / self.cellViewSize.height + 3;
     for (NSInteger row = self.mainScrollView.contentOffset.y / self.cellViewSize.height < 0 ? 0 : self.mainScrollView.contentOffset.y / self.cellViewSize.height; (row < rowNumber && row < rowInScreen); row++) {
@@ -352,7 +343,7 @@
 
 #pragma mark - remove a cell
 - (void)removeMainViewCellWithIndexPath:(NSIndexPath *)indexPath {
-    DQKMainViewCell *mainViewCell = [dataSource freezeWindowView:self cellForRowAtIndexPath:indexPath];
+    DQKMainViewCell *mainViewCell = [_dataSource freezeWindowView:self cellForRowAtIndexPath:indexPath];
     CGRect intersectionRect = CGRectIntersection(mainViewCell.frame, CGRectMake(self.mainScrollView.contentOffset.x, self.mainScrollView.contentOffset.y, self.mainScrollView.frame.size.width, self.mainScrollView.frame.size.height));
     if (CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect)) {
         [mainViewCell removeFromSuperview];
@@ -360,7 +351,7 @@
 }
 
 - (void)removeSectionViewCellWithSection:(NSInteger)section {
-    DQKSectionViewCell *sectionViewCell = [dataSource freezeWindowView:self cellAtSection:section];
+    DQKSectionViewCell *sectionViewCell = [_dataSource freezeWindowView:self cellAtSection:section];
     CGRect intersectionRect = CGRectIntersection(sectionViewCell.frame, CGRectMake(self.sectionScrollView.contentOffset.x, self.sectionScrollView.contentOffset.y, self.sectionScrollView.frame.size.width, self.sectionScrollView.frame.size.height));
     if (CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect)) {
         [sectionViewCell removeFromSuperview];
@@ -368,7 +359,7 @@
 }
 
 - (void)removeRowViewCellWithRow:(NSInteger)row {
-    DQKRowViewCell *rowViewCell = [dataSource freezeWindowView:self cellAtRow:row];
+    DQKRowViewCell *rowViewCell = [_dataSource freezeWindowView:self cellAtRow:row];
     CGRect intersectionRect = CGRectIntersection(rowViewCell.frame, CGRectMake(self.rowScrollView.contentOffset.x, self.rowScrollView.contentOffset.y, self.rowScrollView.frame.size.width, self.rowScrollView.frame.size.height));
     if (CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect)) {
         [rowViewCell removeFromSuperview];
@@ -377,12 +368,12 @@
 
 #pragma mark - add a cell
 - (void)addMainViewCellWithIndexPath:(NSIndexPath *)indexPath {
-    DQKMainViewCell *mainViewCell = [dataSource freezeWindowView:self cellForRowAtIndexPath:indexPath];
+    DQKMainViewCell *mainViewCell = [_dataSource freezeWindowView:self cellForRowAtIndexPath:indexPath];
     if (mainViewCell != nil && [mainViewCell superview] == nil) {
         NSString *mainReuseIdentifier = mainViewCell.reuseIdentifier;
         [self.mainScrollView addSubview:mainViewCell];
         if ([self dequeueReusableMainCellWithIdentifier:mainReuseIdentifier forIndexPath:indexPath] == nil) {
-            if (delegate) {
+            if (_delegate) {
                 UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMainViewCell:)];
                 [mainViewCell addGestureRecognizer:gestureRecognizer];
             }
@@ -400,7 +391,7 @@
 }
 
 - (void)addSectionViewCellWithSection:(NSInteger)section {
-    DQKSectionViewCell *sectionViewCell = [dataSource freezeWindowView:self cellAtSection:section];
+    DQKSectionViewCell *sectionViewCell = [_dataSource freezeWindowView:self cellAtSection:section];
     if (sectionViewCell != nil && [sectionViewCell superview] == nil) {
         NSString *sectionReuseIdentifier = sectionViewCell.reuseIdentifier;
         [self.sectionScrollView addSubview:sectionViewCell];
@@ -419,12 +410,12 @@
 }
 
 - (void)addRowViewCellWithRow:(NSInteger)row {
-    DQKRowViewCell *rowViewCell = [dataSource freezeWindowView:self cellAtRow:row];
+    DQKRowViewCell *rowViewCell = [_dataSource freezeWindowView:self cellAtRow:row];
     if (rowViewCell != nil && [rowViewCell superview] == nil) {
         NSString *rowReuseIdentifier = rowViewCell.reuseIdentifier;
         [self.rowScrollView addSubview:rowViewCell];
         if ([self dequeueReusableRowCellWithIdentifier:rowReuseIdentifier forRow:row] == nil) {
-            switch (style) {
+            switch (_style) {
                 case DQKFreezeWindowViewStyleDefault:
                     [rowViewCell setFrame:CGRectMake(0, self.cellViewSize.height * row, self.freezePoint.x, self.cellViewSize.height)];
                     break;
