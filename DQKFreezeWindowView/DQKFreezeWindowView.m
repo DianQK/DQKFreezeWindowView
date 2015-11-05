@@ -20,9 +20,34 @@
 
 @property (strong, nonatomic) NSMutableDictionary *cellIdentifier;
 
+@property (strong, nonatomic) NSMutableArray *reuseMainCell;
+@property (strong, nonatomic) NSMutableArray *reuseSectionCell;
+@property (strong, nonatomic) NSMutableArray *reuseRowCell;
+
 @end
 
 @implementation DQKFreezeWindowView
+
+- (NSMutableArray *)reuseMainCell {
+    if (!_reuseMainCell) {
+        _reuseMainCell = [[NSMutableArray alloc] initWithCapacity:0];
+    }
+    return _reuseMainCell;
+}
+
+- (NSMutableArray *)reuseSectionCell {
+    if (!_reuseSectionCell) {
+        _reuseSectionCell = [[NSMutableArray alloc] initWithCapacity:0];
+    }
+    return _reuseSectionCell;
+}
+
+- (NSMutableArray *)reuseRowCell {
+    if (!_reuseRowCell) {
+        _reuseRowCell = [[NSMutableArray alloc] initWithCapacity:0];
+    }
+    return _reuseRowCell;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame FreezePoint: (CGPoint) freezePoint cellViewSize: (CGSize) cellViewSize {
     self = [super initWithFrame:frame];
@@ -50,7 +75,7 @@
         [self setContentSize];
         _freezePoint = freezePoint;
         _cellViewSize = cellViewSize;
-        _cellIdentifier = [[NSMutableDictionary alloc] init];
+        _cellIdentifier = [[NSMutableDictionary alloc] initWithCapacity:0];
     }
     return self;
 }
@@ -62,18 +87,33 @@
 - (DQKMainViewCell *)dequeueReusableMainCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath {
     NSMutableDictionary *mainCellsWithIndexPath = [self.cellIdentifier objectForKey:identifier];
     DQKMainViewCell *mainViewCell = [mainCellsWithIndexPath objectForKey:indexPath];
+//    DQKMainViewCell *mainViewCell = nil;
+    if (!mainViewCell && self.reuseMainCell.count) {
+        mainViewCell = (DQKMainViewCell *)self.reuseMainCell.lastObject;
+        [self.reuseMainCell removeLastObject];
+    }
     return mainViewCell;
 }
 
 - (DQKSectionViewCell *)dequeueReusableSectionCellWithIdentifier:(NSString *)identifier forSection:(NSInteger)section {
     NSMutableDictionary *sectionCellsWithSection = [self.cellIdentifier objectForKey:identifier];
     DQKSectionViewCell *sectionViewCell = [sectionCellsWithSection objectForKey:[NSString stringWithFormat:@"%ld",(long)section]];
+//    DQKSectionViewCell *sectionViewCell = nil;
+    if (!sectionViewCell && self.reuseSectionCell.count) {
+        sectionViewCell = (DQKSectionViewCell *)self.reuseSectionCell.lastObject;
+        [self.reuseSectionCell removeLastObject];
+    }
     return sectionViewCell;
 }
 
 - (DQKRowViewCell *)dequeueReusableRowCellWithIdentifier:(NSString *)identifier forRow:(NSInteger)row {
     NSMutableDictionary *rowCellsWithRow = [self.cellIdentifier objectForKey:identifier];
     DQKRowViewCell *rowViewCell = [rowCellsWithRow objectForKey:[NSString stringWithFormat:@"%ld",(long)row]];
+//    DQKRowViewCell *rowViewCell = nil;
+    if (!rowViewCell && self.reuseRowCell.count) {
+        rowViewCell = (DQKRowViewCell *)self.reuseRowCell.lastObject;
+        [self.reuseRowCell removeLastObject];
+    }
     return rowViewCell;
 }
 
@@ -94,7 +134,10 @@
 }
 
 - (void)reloadData {
-    [self.cellIdentifier removeAllObjects];
+//    [self.cellIdentifier removeAllObjects];
+    [self.reuseMainCell removeAllObjects];
+    [self.reuseSectionCell removeAllObjects];
+    [self.reuseRowCell removeAllObjects];
     [self reloadViews];
 }
 
@@ -346,7 +389,11 @@
     DQKMainViewCell *mainViewCell = [_dataSource freezeWindowView:self cellForRowAtIndexPath:indexPath];
     CGRect intersectionRect = CGRectIntersection(mainViewCell.frame, CGRectMake(self.mainScrollView.contentOffset.x, self.mainScrollView.contentOffset.y, self.mainScrollView.frame.size.width, self.mainScrollView.frame.size.height));
     if (CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect)) {
+        [self.reuseMainCell addObject:mainViewCell];
+        NSLog(@"ResueMainCellCount:%d",self.reuseMainCell.count);
         [mainViewCell removeFromSuperview];
+        NSMutableDictionary *mainCellsWithIndexPath = [self.cellIdentifier objectForKey:mainViewCell.reuseIdentifier];
+        [mainCellsWithIndexPath removeObjectForKey:indexPath];
     }
 }
 
@@ -354,7 +401,10 @@
     DQKSectionViewCell *sectionViewCell = [_dataSource freezeWindowView:self cellAtSection:section];
     CGRect intersectionRect = CGRectIntersection(sectionViewCell.frame, CGRectMake(self.sectionScrollView.contentOffset.x, self.sectionScrollView.contentOffset.y, self.sectionScrollView.frame.size.width, self.sectionScrollView.frame.size.height));
     if (CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect)) {
+        [self.reuseSectionCell addObject:sectionViewCell];
         [sectionViewCell removeFromSuperview];
+        NSMutableDictionary *sectionCellsWithSection = [self.cellIdentifier objectForKey:sectionViewCell.reuseIdentifier];
+        [sectionCellsWithSection removeObjectForKey:[NSString stringWithFormat:@"%ld",(long)section]];
     }
 }
 
@@ -362,7 +412,10 @@
     DQKRowViewCell *rowViewCell = [_dataSource freezeWindowView:self cellAtRow:row];
     CGRect intersectionRect = CGRectIntersection(rowViewCell.frame, CGRectMake(self.rowScrollView.contentOffset.x, self.rowScrollView.contentOffset.y, self.rowScrollView.frame.size.width, self.rowScrollView.frame.size.height));
     if (CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect)) {
+        [self.reuseRowCell addObject:rowViewCell];
         [rowViewCell removeFromSuperview];
+        NSMutableDictionary *rowCellsWithRow = [self.cellIdentifier objectForKey:rowViewCell.reuseIdentifier];
+        [rowCellsWithRow removeObjectForKey:[NSString stringWithFormat:@"%ld",(long)row]];
     }
 }
 
@@ -370,6 +423,7 @@
 - (void)addMainViewCellWithIndexPath:(NSIndexPath *)indexPath {
     DQKMainViewCell *mainViewCell = [_dataSource freezeWindowView:self cellForRowAtIndexPath:indexPath];
     if (mainViewCell != nil && [mainViewCell superview] == nil) {
+        NSLog(@"Add");
         NSString *mainReuseIdentifier = mainViewCell.reuseIdentifier;
         [self.mainScrollView addSubview:mainViewCell];
         if ([self dequeueReusableMainCellWithIdentifier:mainReuseIdentifier forIndexPath:indexPath] == nil) {
@@ -386,6 +440,7 @@
             } else {
                 [mainCellsWithIndexPath setObject:mainViewCell forKey:indexPath];
             }
+            
         }
     }
 }

@@ -40,8 +40,8 @@
     NSString *mainCellContent = [NSString stringWithFormat:@"%ld %ld",(long)indexPath.section,(long)indexPath.row];
     if (mainCell == nil) {
         mainCell = [[DQKMainViewCell alloc] initWithStyle:DQKMainViewCellStyleDefault reuseIdentifier:calendarCell];
-        mainCell.title = mainCellContent;
     }
+    mainCell.title = mainCellContent;
     return mainCell;
 }
 
@@ -52,8 +52,8 @@
     NSString *sectionCellContent = [NSString stringWithFormat:@"%ld",(long)section];
     if (sectionCell == nil) {
         sectionCell = [[DQKSectionViewCell alloc] initWithStyle:DQKSectionViewCellStyleDefault reuseIdentifier:dayCell];
-        sectionCell.title = sectionCellContent;
     }
+    sectionCell.title = sectionCellContent;
     return sectionCell;
 }
 
@@ -63,8 +63,8 @@
     NSString *rowCellContent = [NSString stringWithFormat:@"%ld",(long)row];
     if (rowCell == nil) {
         rowCell = [[DQKRowViewCell alloc] initWithStyle:DQKRowViewCellStyleDefault reuseIdentifier:timeCell];
-        rowCell.title = rowCellContent;
     }
+    rowCell.title = rowCellContent;
     return rowCell;
 }
 

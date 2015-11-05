@@ -56,19 +56,19 @@
     DQKMainViewCell *mainCell = [freezeWindowView dequeueReusableMainCellWithIdentifier:eventCell forIndexPath:indexPath];
     if (mainCell == nil) {
         mainCell = [[DQKMainViewCell alloc] initWithStyle:DQKMainViewCellStyleCustom reuseIdentifier:eventCell];
-        if (indexPath.row == 3 && indexPath.section == 2) {
-      
-            UIView *blueLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1.5, 1.5, 42 * 2)];
-            blueLineView.backgroundColor = [UIColor colorWithRed:56./255 green:157./255. blue:241./255. alpha:1];
-            [mainCell addSubview:blueLineView];
-            UILabel *eventLabel = [[UILabel alloc] initWithFrame:CGRectMake(1.5, 1.5, 100, 42 * 2)];
-            [eventLabel setTag:200];
-            eventLabel.backgroundColor = [UIColor colorWithRed:204./255. green:234./255. blue:252./255. alpha:1];
-            [eventLabel setFont:[UIFont systemFontOfSize:11]];
-            eventLabel.text = @"DianQK\n\n";
-            eventLabel.numberOfLines = 0;
-            [mainCell addSubview:eventLabel];
-        }
+    }
+    if (indexPath.row == 3 && indexPath.section == 2) {
+        
+        UIView *blueLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 1.5, 1.5, 42 * 2)];
+        blueLineView.backgroundColor = [UIColor colorWithRed:56./255 green:157./255. blue:241./255. alpha:1];
+        [mainCell addSubview:blueLineView];
+        UILabel *eventLabel = [[UILabel alloc] initWithFrame:CGRectMake(1.5, 1.5, 100, 42 * 2)];
+        [eventLabel setTag:200];
+        eventLabel.backgroundColor = [UIColor colorWithRed:204./255. green:234./255. blue:252./255. alpha:1];
+        [eventLabel setFont:[UIFont systemFontOfSize:11]];
+        eventLabel.text = @"DianQK\n\n";
+        eventLabel.numberOfLines = 0;
+        [mainCell addSubview:eventLabel];
     }
     return mainCell;
 }
@@ -76,32 +76,32 @@
 - (DQKSectionViewCell *)freezeWindowView:(DQKFreezeWindowView *)freezeWindowView cellAtSection:(NSInteger)section {
     static NSString *dayCell = @"dayCell";
     DQKSectionViewCell *sectionCell = [freezeWindowView dequeueReusableSectionCellWithIdentifier:dayCell forSection:section];
+    if (sectionCell == nil) {
+        sectionCell = [[DQKSectionViewCell alloc] initWithStyle:DQKSectionViewCellStyleCustom reuseIdentifier:dayCell];
+    }
     sectionCell.backgroundColor = [UIColor colorWithRed:245./255. green:245./255. blue:245./255. alpha:1.];
     NSDateComponents *dateComponents = [self getDateWithDaySinceNow:section - 2];
     NSString *monthStr = [NSString stringWithFormat:@"%@",[self getMonthStrWithMonth:[dateComponents month]]];
     [freezeWindowView setSignViewWithContent:monthStr];
-    if (sectionCell == nil) {
-        sectionCell = [[DQKSectionViewCell alloc] initWithStyle:DQKSectionViewCellStyleCustom reuseIdentifier:dayCell];
-        UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 103, 24)];
-        dateLabel.text = [NSString stringWithFormat:@"%ld",(long)[dateComponents day]];
-        dateLabel.textAlignment = NSTextAlignmentCenter;
-        [dateLabel setTag:300];
-        [sectionCell addSubview:dateLabel];
-        UILabel *weekLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, 103, 24)];
-        [weekLabel setFont:[UIFont systemFontOfSize:14]];
-        weekLabel.text = [self getWeekStrWithWeek:[dateComponents weekday]];
-        weekLabel.textAlignment = NSTextAlignmentCenter;
-        [sectionCell addSubview:weekLabel];
-        if (section == 2) {
-            dateLabel.textColor = [UIColor whiteColor];
-            [dateLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
-            [weekLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
-            UIView *nowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 34, 34)];
-            nowView.center = dateLabel.center;
-            nowView.layer.cornerRadius = 17;
-            nowView.backgroundColor = [UIColor redColor];
-            [sectionCell insertSubview:nowView belowSubview:dateLabel];
-        }
+    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 103, 24)];
+    dateLabel.text = [NSString stringWithFormat:@"%ld",(long)[dateComponents day]];
+    dateLabel.textAlignment = NSTextAlignmentCenter;
+    [dateLabel setTag:300];
+    [sectionCell addSubview:dateLabel];
+    UILabel *weekLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, 103, 24)];
+    [weekLabel setFont:[UIFont systemFontOfSize:14]];
+    weekLabel.text = [self getWeekStrWithWeek:[dateComponents weekday]];
+    weekLabel.textAlignment = NSTextAlignmentCenter;
+    [sectionCell addSubview:weekLabel];
+    if (section == 2) {
+        dateLabel.textColor = [UIColor whiteColor];
+        [dateLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
+        [weekLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
+        UIView *nowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 34, 34)];
+        nowView.center = dateLabel.center;
+        nowView.layer.cornerRadius = 17;
+        nowView.backgroundColor = [UIColor redColor];
+        [sectionCell insertSubview:nowView belowSubview:dateLabel];
     }
     return sectionCell;
 }
@@ -111,13 +111,13 @@
     DQKRowViewCell *rowCell = [freezeWindowView dequeueReusableRowCellWithIdentifier:timeCell forRow:row];
     if (rowCell == nil) {
         rowCell = [[DQKRowViewCell alloc] initWithStyle:DQKRowViewCellStyleCustom reuseIdentifier:timeCell];
-        UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 10, 41, 20)];
-        timeLabel.textColor = [UIColor colorWithRed:151./255. green:151./255. blue:151./255. alpha:1];
-        [timeLabel setFont:[UIFont systemFontOfSize:11]];
-        if (row >= 0 && row < self.timeArray.count) {
-            timeLabel.text = self.timeArray[row];
-            [rowCell addSubview:timeLabel];
-        }
+    }
+    UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 10, 41, 20)];
+    timeLabel.textColor = [UIColor colorWithRed:151./255. green:151./255. blue:151./255. alpha:1];
+    [timeLabel setFont:[UIFont systemFontOfSize:11]];
+    if (row >= 0 && row < self.timeArray.count) {
+        timeLabel.text = self.timeArray[row];
+        [rowCell addSubview:timeLabel];
     }
     return rowCell;
 }
