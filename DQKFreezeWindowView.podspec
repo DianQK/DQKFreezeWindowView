@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name = "DQKFreezeWindowView"
-s.version = "0.9.1"
+s.version = "0.9.2"
 s.summary = 'Like excel awesome freeze window view.'
 s.homepage = "https://github.com/DianQK/DQKFreezeWindowView"
 s.license = 'MIT'
