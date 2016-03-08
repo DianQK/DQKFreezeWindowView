@@ -20,9 +20,22 @@
 
 @property (strong, nonatomic) NSMutableDictionary *cellIdentifier;
 
+
 @end
 
 @implementation DQKFreezeWindowView
+
+- (UIScrollView *)mainView {
+    return _mainScrollView;
+}
+
+- (UIScrollView *)sectionView {
+    return _sectionScrollView;
+}
+
+- (UIScrollView *)rowView {
+    return _rowScrollView;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame FreezePoint: (CGPoint) freezePoint cellViewSize: (CGSize) cellViewSize {
     self = [super initWithFrame:frame];

@@ -43,6 +43,9 @@ typedef NS_ENUM(NSInteger, DQKFreezeWindowViewBounceStyle) {
 
 - (void)reloadData;
 
+- (UIScrollView *)mainView;
+- (UIScrollView *)sectionView;
+- (UIScrollView *)rowView;
 @property (weak, nonatomic) id<DQKFreezeWindowViewDataSource> dataSource;
 @property (weak, nonatomic) id<DQKFreezeWindowViewDelegate> delegate;
 @property (assign, nonatomic) DQKFreezeWindowViewStyle style;
